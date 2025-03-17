@@ -1,0 +1,915 @@
+Hey, I would like to resume this Project.
+
+I want to build a website for Marvel, DC and other animated series with the same structure we built the Project based on the NBC.com site
+
+I want to Header to include a left space for a logo, the followed by 
+Home, Browse, Sports, LIVE, Networks, and NBC Insider
+
+I want a Hero Section that would include 5 slides of horizontal images of 1280 X 720px. The gallery should display after I click on both left and right.
+
+Now, I want different Galleries of Vertical Images (280x420px).
+Please recheck the NBC.com site and modify the code followed next
+
+I want a row of 4 vertical images (280x420px), that slide after I click on left and right arrows HORIZONTALLY. The images should not move VERTICALLY.
+Like in the attached design, I want to include the Title and on the right side a small channel logo.
+Below the title on the left side there should be a smaller place for the year of production and number of episodes
+Make sure the channel logo image fits.
+
+I want 4 pictures to fit, not more, I plan to create galleries of 12 images, take into consideration.
+
+These are the name of the galleries.
+
+Gallery 1:
+Latest adult animated shows
+
+Invincible - 2024 - Prime Video
+Creature Commandos - 2024 - Max
+Batman: Caped Crusader - 2024 - Prime Video
+X-Men 97 - 2024 - Disney+
+Harley Quinn - 2022 - Max
+What If? - 2021-2024 - Disney+
+M.O.D.O.K. - 2021 - Hulu
+Hit-Monkey - 2021 - Hulu
+
+Gallery 2:
+Latest family friendly shows
+
+Your Friendly Neighborhood Spider-Man - 2024 - Disney+
+My Adventures with Superman - 2024 - Max
+Young Justice - 2018 - Max
+Teen Titans Go! - 2013 - Max
+Aquaman: King of Atlantis - 2021 - HBO Max
+DC Super Hero Girls	 - 2013 - Cartoon Network
+
+Gallery 3:
+Upcoming shows
+
+Super Powers
+Marvel Zombies
+Eyes of Wakanda
+My Adventures with Green Lantern
+Starfire
+
+Gallery 4:
+2010's Shows
+
+The Avengers: Earth's Mightiest Heroes - 2010-2012 - Disney XD
+Green Lantern: The Animated Series - 2011–2013 - Cartoon Network
+Ultimate Spider-Man - 2012–2017	Disney XD
+Beware the Batman	- 2013–2014 -  Cartoon Network 
+Avengers Assemble - 2013-2019 - Disney XD
+Hulk and the Agents of S.M.A.S.H. - 2013–2015 - Disney XD
+Justice League Action - 2016–2018	- Cartoon Network
+Guardians of the Galaxy - 2015–2019 - Disney XD	
+Marvel's Spider-Man	 - 2017–2020 - Disney XD	
+
+Gallery 5:
+Anime
+
+Suicide Squad Isekai - 2024 - Max
+Marvel Future Avengers	- 2017- 2018 - Dlife
+Marvel Disk Wars: The Avengers - 2014-2015 - Disney XD
+Batman Ninja - 2012
+Marvel Anime: Iron Man - 2011 - Animax
+Marvel Anime: Wolverine	- 2011 - Animax
+Marvel Anime: X-Men - 2011 - Animax
+Marvel Anime: Blade - 2011 - Animax
+
+Gallery 6
+2000's Shows
+
+X-Men: Evolution - 2000-2003 - Kids WB
+Static Shock - 2000-2004 - Kids WB
+The Zeta Project - 2001-2002 - Kids WB
+Justice League - 2001-2004 - Cartoon Network
+Teen Titans - 2003-2006 - Cartoon Network
+Justice League Unlimited - 2004-2006 - Cartoon Network
+The Batman - 2004-2008 - The WB
+Fantastic Four: World's Greatest Heroes - 2006–2007 - M6
+Legion of Super Heroes - 2006-2008 - Kids WB
+The Spectacular Spider-Man - 2008-2009 - Disney XD
+Wolverine and the X-Men - 2009 - Nicktoons
+Iron Man: Armored Adventures - 2009-2019 - Nicktoons
+
+Gallery 7
+90's Shows
+
+Batman: The Animated Series - 1992/1995 - Fox Kids
+X-Men: The Animated Series - 1992/1997 - Fox Kids	
+Spider-Man	- 1994/1998 - Fox Kids
+Superman: The Animated Series - 1996/2000 - Kids WB!
+Fantastic Four - 1994/1996 - Fox Kids
+Iron Man - - 1994/1996 - Fox Kids
+The Incredible Hulk - 1996/1997 - UPN
+Silver Surfer - 1998 - Fox Kids
+Batman Beyond - 1999/2001 - Kids WB
+Spider-Man: Unlimited - 1999 - Fox Kids
+The Avengers: United They Stand - 1999 - Fox Kids
+WildCats - 1994 - CBS
+Ultraforce - 1994 - USA Network
+
+Gallery 8
+Projects
+
+Captain America
+Daredevil
+Wonder Woman
+Gotham High
+Marvel Anime: Blade	
+Marvel Anime: Blade	
+Marvel Anime: Blade	
+Marvel Anime: Blade	
+Marvel Anime: Blade	
+
+BELOW IS THE CODE TO MODIFY
+
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TV Shows Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <div class="logo">
+        <img src="nbc-logo.png" alt="NBC Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Browse</a></li>
+          <li><a href="#">Sports</a></li>
+          <li><a href="#">LIVE</a></li>
+          <li><a href="#">Networks</a></li>
+          <li><a href="#">NBC Insider</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Optional right-side header buttons (uncomment if desired)
+    <div class="header-right">
+      <button class="header-btn">Link TV Provider</button>
+      <button class="header-btn">Sign Up</button>
+    </div>
+    -->
+  </header>
+
+  <main>
+
+    <!-- HERO SLIDER (3 slides) -->
+    <section class="hero-slider">
+      <div class="hero-wrapper">
+        <button class="hero-prev" onclick="moveHero(-1)">&#10094;</button>
+        <div class="hero-container">
+          <!-- Slide 1 -->
+          <div class="hero-slide">
+            <!-- Use images ~1920x720 or 1920x1080 for best results -->
+            <img src="img/syfy/el-eternauta-horizontal.jpg" alt="El Eternauta" />
+            <div class="hero-text">
+              <h2>El Eternauta</h2>
+              <!--<p class="show-date">Saturdays | 11:30/10:30c</p>-->
+              <p class="show-description">
+                Cuando una nieve tóxica mata a millones de personas, Juan Salvo y un grupo de supervivientes de Buenos Aires deben combatir una amenaza invisible de otro mundo.
+              </p>
+              <div class="hero-buttons">
+                <button>Estrena el 30 de Abril</button>
+                <button>Pronto en Netflix</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="hero-slide">
+            <img src="img/heroes/coyotl-horizontal.jpg" alt="Coyotl: Héroes y Bestia" />
+            <div class="hero-text">
+              <h2>Coyotl: Héroes y Bestia</h2>
+              <p class="show-date">Nuevos episodios los lunes</p>
+              <p class="show-description">
+                En un pueblo de México disputado por narcos, el joven Lupe acepta convertirse en un hombre-bestia para proteger a su gente.
+              </p>
+              <div class="hero-buttons">
+                <button>Mirá en Max</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="hero-slide">
+            <img src="img/terror/diablero-horizontal.jpg" alt="Diablero" />
+            <div class="hero-text">
+              <h2>Diablero</h2>
+              <p class="show-date">Todos los episodios disponibles</p>
+              <p class="show-description">
+                El padre Ramiro Ventura busca la ayuda del cazador de demonios Elvis Infante. Junto a Nancy Gama, desatarán eventos que podrían determinar el destino de la humanidad
+              </p>
+              <div class="hero-buttons">
+                <button>Mirá en Netflix</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="hero-next" onclick="moveHero(1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Vertical Gallery 1: Héroes y Justicieros (data-gallery-index="0") -->
+    <section class="gallery vertical" data-gallery-index="0">
+      <h2>Héroes y Justicieros</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'vertical', 0)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/heroes/coyotl-vertical-280 X 420.jpg" alt="Coyotl" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Coyotl: Héroe y Bestia</p>
+                <span class="year">2025</span>
+              </div>
+              <img class="channel-logo" src="img/logos/max_logo-white-transparent-843x279.png" alt="Max" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/heroes/zorro-vertical-280 X 420.jpg" alt="Zorro" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Zorro</p>
+                <span class="year">2024</span>
+              </div>
+              <img class="channel-logo" src="img/logos/prime-video-white-transparent.png" alt="Prime Video" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/heroes/garcia-vertical-280 X 420.jpg" alt="Garcia!" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Garcia!</p>
+                <span class="year">2022</span>
+              </div>
+              <img class="channel-logo" src="img/logos/max_logo-white-transparent-843x279.png" alt="Max" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/heroes/o-doutrinador-vertical-280 X 420.jpg" alt="O Doutrinador" />
+            <div class="details">
+              <div class="info">
+                <p class="title">O Doutrinador</p>
+                <span class="year">2019</span>
+              </div>
+              <img class="channel-logo" src="img/logos/space-logo-white-transparent-1322x300.png" alt="Space" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/heroes/nafta-super-vertical-280x420.jpg" alt="Nafta Súper" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Nafta Súper</p>
+                <span class="year">2016</span>
+              </div>
+              <img class="channel-logo" src="img/logos/space-logo-white-transparent-1322x300.png" alt="Space" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/heroes/blue-demon-vertical-280x420.jpg" alt="Blue Demon" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Blue Demon</p>
+                <span class="year">2016</span>
+              </div>
+              <img class="channel-logo" src="img/logos/el-rey-network-logo-white-transparent.png" alt="El Rey Network" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/heroes/el-pantera-vertical-280x420.png" alt="El Pantera" />
+            <div class="details">
+              <div class="info">
+                <p class="title">El Pantera</p>
+                <span class="year">2007</span>
+              </div>
+              <img class="channel-logo" src="img/logos/vix_logo.png" alt="Vix" />
+            </div>
+          </div>
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'vertical', 0)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Horizontal Gallery 1: Ciencia Ficción (data-gallery-index="0") -->
+    <section class="gallery horizontal" data-gallery-index="0">
+      <h2>Ciencia Ficción</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'horizontal', 0)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/syfy/el-eternauta-horizontal-320 X 180.jpg" alt="El Eternauta" />
+            <div class="details">
+              <div class="info">
+                <p class="title">El Eternauta</p>
+                <span class="year">2025</span>
+              </div>
+              <img class="channel-logo" src="img/logos/netflix-logo-white-transparent-920x250.png" alt="Netflix" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/syfy/3-horizontal (320 x 180 px).jpg" alt="3%" />
+            <div class="details">
+              <div class="info">
+                <p class="title">3%</p>
+                <span class="year">2016</span>
+              </div>
+              <img class="channel-logo" src="img/logos/netflix-logo-white-transparent-920x250.png" alt="Netflix" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/syfy/omnisciente-horizontal-320 X 180.jpg" alt="Omnisciente" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Omnisciente</p>
+                <span class="year">2020</span>
+              </div>
+              <img class="channel-logo" src="img/logos/netflix-logo-white-transparent-920x250.png" alt="Netflix" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/syfy/dani-who-horizontal-320 X 180.jpg" alt="Dani Who?" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Dani Who?</p>
+                <span class="year">2019</span>
+              </div>
+              <img class="channel-logo" src="img/logos/paramount-plus-transparent.png" alt="Paramount+" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/syfy/2091-jugaromorir-horizontal-320 x 180.jpg" alt="2091: Jugar o Morir" />
+            <div class="details">
+              <div class="info">
+                <p class="title">2091: Jugar o Morir</p>
+                <span class="year">2016</span>
+              </div>
+              <img class="channel-logo" src="img/logos/fox-white-logo-440x330.png" alt="Prime Video" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/syfy/kdabra-horizontal-320 X 180.jpg" alt="Fox" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Kdrabra</p>
+                <span class="year">2009</span>
+              </div>
+              <img class="channel-logo" src="img/logos/star-plus-white-logo-transparent.png" alt="Star+" />
+            </div>
+          </div>
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'horizontal', 0)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Vertical Gallery 2: Terror (data-gallery-index="1") -->
+    <section class="gallery vertical" data-gallery-index="1">
+      <h2>Terror</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'vertical', 1)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/terror/yllegaron-de-noche-vertical-280 X 420.jpg" alt="Y Llegaron de Noche" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Y Llegaron de Noche</p>
+                <span class="year">2024</span>
+              </div>
+              <img class="channel-logo" src="img/logos/vix_logo.png" alt="Vix" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/terror/lahoramarcada-vertical-281 X 420.jpg" alt="La Hora Marcada" />
+            <div class="details">
+              <div class="info">
+                <p class="title">La Hora Marcada</p>
+                <span class="year">2022</span>
+              </div>
+              <img class="channel-logo" src="img/logos/vix_logo.png" alt="Vix" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/terror/pinches-momias-vertical-280 X 420.jpg" alt="Pinches Momias" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Pinches Momias</p>
+                <span class="year">2022</span>
+              </div>
+              <img class="channel-logo" src="img/logos/vix_logo.png" alt="Vix" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/terror/realityz-vertical-280 X 420.jpg" alt="Reality Z" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Reality Z</p>
+                <span class="year">2020</span>
+              </div>
+              <img class="channel-logo" src="img/logos/netflix-logo-white-transparent-920x250.png" alt="Netflix" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/terror/soz-soldadosozombies-vertical-286 X 420.jpg" alt="SOZ" />
+            <div class="details">
+              <div class="info">
+                <p class="title">SOZ: Soldados o Zombies</p>
+                <span class="year">2020</span>
+              </div>
+              <img class="channel-logo" src="img/logos/prime-video-white-transparent.png" alt="Prime Video" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/terror/diablero-vertical-280 X 420.jpg" alt="Diablero" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Diablero</p>
+                <span class="year">2018</span>
+              </div>
+              <img class="channel-logo" src="img/logos/netflix-logo-white-transparent-920x250.png" alt="Prime Video" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/terror/dogma-vertical-280 X 420.jpg" alt="Dogma" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Dogma</p>
+                <span class="year">2017</span>
+              </div>
+              <img class="channel-logo" src="img/logos/vix_logo.png" alt="Prime Video" />
+            </div>
+          </div>
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'vertical', 1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Horizontal Gallery 2: Drama (data-gallery-index="1") -->
+     <!-- <section class="gallery horizontal" data-gallery-index="1">
+      <h2>Drama</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'horizontal', 1)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/drama/show1-horizontal-320 X 180.jpg" alt="Show 1" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Show 1</p>
+                <span class="year">2023</span>
+              </div>
+              <img class="channel-logo" src="img/logos/drama-channel-logo.png" alt="Channel" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/drama/show2-horizontal-320 X 180.jpg" alt="Show 2" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Show 2</p>
+                <span class="year">2021</span>
+              </div>
+              <img class="channel-logo" src="img/logos/drama-channel-logo.png" alt="Channel" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/drama/show3-horizontal-320 X 180.jpg" alt="Show 3" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Show 3</p>
+                <span class="year">2020</span>
+              </div>
+              <img class="channel-logo" src="img/logos/drama-channel-logo.png" alt="Channel" />
+            </div>
+          </div>
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'horizontal', 1)">&#10095;</button>
+      </div>
+    </section> -->
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+CSS
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #111;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  background: #000;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-start; /* ensures nav is on the left side */
+  align-items: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #e50914;
+}
+
+/* Optional right side header (uncomment if needed)
+.header-right {
+  margin-left: auto;
+  display: flex;
+  gap: 15px;
+}
+.header-btn {
+  background: none;
+  color: white;
+  border: 1px solid #e50914;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.header-btn:hover {
+  background: #e50914;
+}
+*/
+
+/* HERO SLIDER */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0;
+  /* if you want some top space below the header, you can add margin-top: 60px; */
+}
+
+.hero-wrapper {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.hero-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.hero-slide {
+  position: relative;
+  min-width: 100%;
+  /* Instead of padding-bottom: 37.5% (which is 16:9),
+     use 720/1920 = 37.5% if your images truly are 1920x720. 
+     Actually 720 / 1920 = 0.375 = 37.5%, so the math is the same. 
+     But let's confirm the ratio is truly 8:3. 
+     If it's 8:3, 720 / 1920 = 0.375 indeed. */
+
+  /* If your images are exactly 1920x720, you can keep 37.5% here: */
+  padding-bottom: 37.5%; /* 720/1920 * 100% */
+  overflow: hidden;
+}
+
+.hero-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or 'contain' if you want zero cropping */
+}
+
+.hero-text {
+  position: absolute;
+  left: 5%;
+  top: 30%;
+  transform: translateY(-50%);
+  max-width: 40%;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.show-date,
+.show-description {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.hero-buttons button {
+  margin-right: 10px;
+  margin-top: 10px;
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.hero-buttons button:hover {
+  background: #f40612;
+}
+
+.hero-prev,
+.hero-next {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: white;
+  font-size: 36px;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.hero-prev:hover,
+.hero-next:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero-prev {
+  left: 0;
+}
+
+.hero-next {
+  right: 0;
+}
+
+/* GALLERY STYLES */
+.gallery {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.gallery h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* GALLERY WRAPPER */
+.gallery-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* NAVIGATION BUTTONS for galleries */
+.prev-btn,
+.next-btn {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+/* GALLERY CONTAINER (for sliding) */
+.gallery-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Vertical Gallery: 4 items, each 280px wide, gap: 20px */
+.gallery.vertical .gallery-container {
+  gap: 20px;
+}
+
+/* Horizontal Gallery: 3 items, each 320px wide, gap: 30px */
+.gallery.horizontal .gallery-container {
+  gap: 30px;
+}
+
+/* ITEM SIZES */
+.vertical .item {
+  width: 280px !important;  /* Force 280px exactly */
+  box-sizing: border-box;   /* Make sure padding is included in width */
+  flex: 0 0 auto;
+}
+
+.vertical .item img {
+  width: 100%; 
+  height: auto; /* Scale images to fit the 280px container */
+}
+
+.horizontal .item {
+  width: 320px;
+  flex: 0 0 auto;
+}
+
+/* IMAGE ITEMS */
+.item {
+  background: #222; /* optional background behind images */
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.item img {
+  width: 100%;
+  display: block;
+  border-radius: 5px 5px 0 0; /* top corners only */
+}
+
+/* DETAILS (Title, Year, Channel Logo) */
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  padding: 0 10px 10px; /* add some padding around the text & logo */
+  position: relative;
+}
+
+.details .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.details .info .title {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.year {
+  font-size: 12px;
+  color: #ccc;
+  margin-top: 2px;
+}
+
+/* Channel Logo - set to 30px wide */
+.channel-logo {
+  width: 40px !important;
+  height: auto !important;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .hero-text {
+    max-width: 60%;
+    top: 40%;
+  }
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .vertical .item {
+    width: 200px;
+  }
+  .horizontal .item {
+    width: 220px;
+  }
+  .prev-btn,
+  .next-btn,
+  .hero-prev,
+  .hero-next {
+    font-size: 18px;
+    padding: 8px;
+  }
+}
+
+
+
+JAVASCRIPT
+
+// --------------------------------------------------
+// HERO SLIDER LOGIC (3 slides, user-driven)
+// --------------------------------------------------
+let heroIndex = 0;
+
+function moveHero(direction) {
+  const hero = document.querySelector('.hero-container');
+  const slides = hero.querySelectorAll('.hero-slide');
+  const totalSlides = slides.length;
+
+  heroIndex += direction;
+  if (heroIndex < 0) heroIndex = totalSlides - 1;
+  if (heroIndex >= totalSlides) heroIndex = 0;
+
+  // Each slide is 100% width, so we can translate by 100% multiples.
+  hero.style.transform = `translateX(-${heroIndex * 100}%)`;
+}
+
+// --------------------------------------------------
+// MULTIPLE GALLERIES (vertical/horizontal) LOGIC
+// --------------------------------------------------
+let verticalIndexes = {};
+let horizontalIndexes = {};
+
+function moveSlide(direction, galleryType, galleryIndex) {
+  const selector = `.gallery.${galleryType}[data-gallery-index="${galleryIndex}"] .gallery-container`;
+  const gallery = document.querySelector(selector);
+  if (!gallery) return;
+
+  const items = gallery.querySelectorAll('.item');
+  const totalItems = items.length;
+
+  // Determine items per view: 3 for horizontal, 4 for vertical
+  const itemsPerView = (galleryType === 'horizontal') ? 3 : 4;
+
+  // Retrieve current index or default to 0
+  let index;
+  if (galleryType === 'horizontal') {
+    index = horizontalIndexes[galleryIndex] || 0;
+  } else {
+    index = verticalIndexes[galleryIndex] || 0;
+  }
+
+  index += direction;
+
+  // Wrap around if out of bounds
+  const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
+  if (index < 0) index = maxIndex;
+  if (index > maxIndex) index = 0;
+
+  // Gap: 30px for horizontal, 20px for vertical
+  const gap = (galleryType === 'horizontal') ? 30 : 20;
+  const itemWidth = items[0].offsetWidth;
+
+  // Calculate slide distance
+  const pageWidth = itemsPerView * (itemWidth + gap) - gap;
+
+  // Slide
+  gallery.style.transform = `translateX(-${index * pageWidth}px)`;
+
+  // Save updated index
+  if (galleryType === 'horizontal') {
+    horizontalIndexes[galleryIndex] = index;
+  } else {
+    verticalIndexes[galleryIndex] = index;
+  }
+}
