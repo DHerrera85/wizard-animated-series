@@ -65,24 +65,18 @@ nav ul li a:hover {
   margin: 0 auto;
 }
 
-.hero-container {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.hero-slide {
-  position: relative;
+/* Remove the old padding hack */
+.hero-slide {                /* keep position:relative in case you use it elsewhere */
   min-width: 100%;
-  padding-bottom: 56.25%; /* 720/1280 = 56.25% */
   overflow: hidden;
+  /* padding-bottom: 56.25%;   <-- delete this line */
 }
 
+/* Let the image define height */
 .hero-slide img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;              /* natural 16:9 height */
+  display: block;
   object-fit: cover;
 }
 
@@ -204,10 +198,6 @@ nav ul li a:hover {
 }
 
 /* Gallery Container */
-.gallery-container {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
 
 /* Vertical Gallery: 4 items, each 280px wide, gap 20px */
 /* Example: Tighter gap for vertical galleries */
@@ -303,4 +293,10 @@ nav ul li a:hover {
     font-size: 18px;
     padding: 8px;
   }
+}
+
+/* turn off the old flex rules once Flickity is active */
+.flickity-enabled {                 /* hero + all galleries */
+  display: block !important;        /* let Flickity manage width/height */
+  transition: none !important;      /* old translateX animation not needed */
 }
