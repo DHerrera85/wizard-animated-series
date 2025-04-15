@@ -271,32 +271,52 @@ nav ul li a:hover {
   height: auto !important;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-text {
-    max-width: 60%;
-    top: 40%;
-  }
-  .hero-text h2 {
-    font-size: 1.5rem;
-  }
-  .vertical .item {
-    width: 200px;
-  }
-  .horizontal .item {
-    width: 220px;
-  }
-  .prev-btn,
-  .next-btn,
-  .hero-prev,
-  .hero-next {
-    font-size: 18px;
-    padding: 8px;
-  }
-}
+/* =========================================================
+   FINAL mobile‑header rules  (append at the very end)
+   =========================================================*/
+   @media (max-width: 768px) {
 
-/* turn off the old flex rules once Flickity is active */
-.flickity-enabled {                 /* hero + all galleries */
-  display: block !important;        /* let Flickity manage width/height */
-  transition: none !important;      /* old translateX animation not needed */
+    /* 1. stack logo above the nav bar */
+    header           { flex-direction: column; align-items: flex-start; }
+    .header-left     { flex-direction: column; width: 100%; gap: 6px; }
+    .logo img        { height: 36px; margin: 0 0 4px 0; }
+  
+    /* 2. make the Flickity bar fill the width and be swipe‑able */
+    .mobile-nav      { display: block; width: 100%; }
+    .mobile-nav .nav-cell {
+      padding: 6px 12px;
+      font-size: 15px;
+      white-space: nowrap;
+      color: #fff;
+    }
+
+    .mobile-nav a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    
+    .mobile-nav a:hover,
+    .mobile-nav a.active {            /* active = current section */
+      color: #e50914;
+    }
+  
+    /* 3. hide the desktop list */
+    .desktop-nav     { display: none; }
+  }
+
+  /* phones ≤ 768 px : slightly smaller button, farther from edges */
+
+#backToTop { z-index: 9999; }
+
+/* phones ≤ 768 px : show earlier */
+
+@media (max-width: 768px) {
+  #backToTop {
+    right: 16px;
+    bottom: 16px;
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
 }

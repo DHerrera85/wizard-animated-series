@@ -1,0 +1,1450 @@
+Wizard Animated Series - Previous code to Flickity
+
+
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wizard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <div class="logo">
+        <img src="img/logos/wizard-logo-transparent.png" alt="NBC Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Adult</a></li>
+          <li><a href="#">Family</a></li>
+          <li><a href="#">Upcoming</a></li>
+          <li><a href="#">2010's</a></li>
+          <li><a href="#">Anime</a></li>
+          <li><a href="#">2000's</a></li>
+          <li><a href="#">90's</a></li>
+          <li><a href="#">Projects</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Optional right-side header buttons can be added here -->
+  </header>
+
+  <main>
+    <!-- HERO SLIDER (5 slides) -->
+    <section class="hero-slider">
+      <div class="hero-wrapper">
+        <button class="hero-prev" onclick="moveHero(-1)">&#10094;</button>
+        <div class="hero-container">
+          <!-- Slide 1 -->
+          <div class="hero-slide">
+            <img src="img/hero/x-men97-1280x720.jpg" alt="Marvel Series Spotlight" />
+            <div class="hero-text">
+              <h2>X-Men '97</h2>
+              <p class="show-description">Experience epic adventures in the Marvel universe.</p>
+              <div class="hero-buttons">
+                <button>Watch Now</button>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="hero-slide">
+            <img src="img/hero/suicide-squad-isekai-1280x720.png" alt="Suicide Squad: Isekai" />
+            <div class="hero-text">
+              <h2>Suicide Squad: Isekai</h2>
+              <p class="show-description">Dive into the animated world of DC heroes.</p>
+              <div class="hero-buttons">
+                <button>Watch Now</button>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="hero-slide">
+            <img src="img/hero/invincible-1280x720.jpg" alt="New Animated Series" />
+            <div class="hero-text">
+              <h2>Invincible</h2>
+              <p class="show-description">Discover the latest in animation across platforms.</p>
+              <div class="hero-buttons">
+                <button>Discover</button>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 4 -->
+          <div class="hero-slide">
+            <img src="img/hero/my-adventures-with-superman-1280x720.jpg" alt="Upcoming Releases" />
+            <div class="hero-text">
+              <h2>My Adventures with Superman</h2>
+              <p class="show-description">Stay tuned for upcoming animated shows.</p>
+              <div class="hero-buttons">
+                <button>Learn More</button>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 5 -->
+          <div class="hero-slide">
+            <img src="img/hero/friendly-neighbour-spider-man-1280x720.jpg" alt="Exclusive Premieres" />
+            <div class="hero-text">
+              <h2>Your Friendly Neighbourhood Spider-Man</h2>
+              <p class="show-description">Catch exclusive premieres only on our platform.</p>
+              <div class="hero-buttons">
+                <button>Watch Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="hero-next" onclick="moveHero(1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- VERTICAL GALLERIES -->
+    <!-- Gallery 1: Latest Adult Animated Shows -->
+    <section class="gallery vertical" data-gallery-index="0">
+      <h2>Latest Adult Animated Shows</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'vertical', 0)">&#10094;</button>
+        <div class="gallery-container">
+          <!-- Each item is 280x420px -->
+          <div class="item">
+            <img src="img/latest-adult/invincible-vertical-280x420.jpg" alt="Invincible" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Invincible</p>
+                <div class="subinfo">
+                  <span class="year">2021-Present</span>
+                  <span class="episodes">/ 3 seasons - 25 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/prime-video-white-transparent.png" alt="Prime Video" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-adult/creature-commandos-280x420px.png" alt="Creature Commandos" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Creature Commandos</p>
+                <div class="subinfo">
+                  <span class="year">2024-Present</span>
+                  <span class="episodes">/ 1 season - 7 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/adult-swim-white-logo.png" alt="Max" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-adult/batman-caped-crusader-vertical-280x420.jpg" alt="Batman: Caped Crusader" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Batman: Caped Crusader</p>
+                <div class="subinfo">
+                  <span class="year">2024-Present</span>
+                  <span class="episodes">/ 1 season - 10 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/prime-video-white-transparent.png" alt="Prime Video" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-adult/x-men-97-280x420px.png" alt="X-Men 97" />
+            <div class="details">
+              <div class="info">
+                <p class="title">X-Men 97</p>
+                <div class="subinfo">
+                  <span class="year">2024-Present</span>
+                  <span class="episodes">/ 1 season - 10 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-plus-logo-transparent.png" alt="Disney+" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-adult/harley-quinn-280x420.jpg" alt="Harley Quinn"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Harley Quinn</p>
+                <div class="subinfo">
+                  <span class="year">2019-Present</span>
+                  <span class="episodes">/ 5 seasons - 56 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/adult-swim-white-logo.png" alt="Max"/>
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-adult/the-boys-diabolical-280x420.jpg" alt="The Boys: Diabolical"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">The Boys: Diabolical</p>
+                <div class="subinfo">
+                  <span class="year">2022</span>
+                  <span class="episodes">/ 1 season - 10 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/prime-video-white-transparent.png" alt="Max"/>
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-adult/what-if-280x420.jpg" alt="What If?"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">What If?</p>
+                <div class="subinfo">
+                  <span class="year">2021-2024</span>
+                  <span class="episodes">/ 3 seasons - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-plus-logo-transparent.png" alt="Disney+" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-adult/modok-280x420.jpg" alt="M.O.D.O.K."/>
+            <div class="details">
+              <div class="info">
+                <p class="title">M.O.D.O.K.</p>
+                <div class="subinfo">
+                  <span class="year">2021</span>
+                  <span class="episodes">/ 1 season - 10 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/hulu-color-transparent.png" alt="Hulu" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-adult/hit-monkey-280x420.jpg" alt="Hit Monkey"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Hit Monkey</p>
+                <div class="subinfo">
+                  <span class="year">2021-Present</span>
+                  <span class="episodes">/ 2 seasons - 20 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/hulu-color-transparent.png" alt="Hulu" />
+            </div>
+          </div>
+          <!-- Additional items (e.g., Harley Quinn, What If?, M.O.D.O.K., Hit-Monkey) go here -->
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'vertical', 0)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Gallery 2: Latest Family Friendly Shows -->
+    <section class="gallery vertical" data-gallery-index="1">
+      <h2>Latest Family Friendly Shows</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'vertical', 1)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/latest-family/friendly-spiderman-280x420.jpg" alt="Your Friendly Neighborhood Spider-Man" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Friendly Neighborhood Spider-Man</p>
+                <div class="subinfo">
+                  <span class="year">2024-Present</span>
+                  <span class="episodes">/ 1 season - 10 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-plus-logo-transparent.png" alt="Disney+" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-family/my-adventures-with-superman-280x420.jpg" alt="My Adventures with Superman" />
+            <div class="details">
+              <div class="info">
+                <p class="title">My Adventures with Superman</p>
+                <div class="subinfo">
+                  <span class="year">2023-Present</span>
+                  <span class="episodes">/ 2 seasons - 20 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/max_logo-white-transparent-843x279.png" alt="Max" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-family/young-justice-280x420.png" alt="Young Justice" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Young Justice</p>
+                <div class="subinfo">
+                  <span class="year">2010-2022</span>
+                  <span class="episodes">/ 4 seasons - 98 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/max_logo-white-transparent-843x279.png" alt="Max" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-family/teen-titans-go-280x420.jpg" alt="Teen Titans Go!" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Teen Titans Go!</p>
+                <div class="subinfo">
+                  <span class="year">2013-Present</span>
+                  <span class="episodes">/ 9 seasons - 409 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/Cartoon-Network-Logo-transparent-PNG.png" alt="Max" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-family/aquaman-king-of-atlantis-280x420.jpg" alt="Aquaman: King of Atlantis" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Aquaman: King of Atlantis</p>
+                <div class="subinfo">
+                  <span class="year">2021</span>
+                  <span class="episodes">/ 1 season - 3 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/max_logo-white-transparent-843x279.png" alt="Max" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/latest-family/dc-superhero-girls-280x420.jpg" alt="Teen Titans Go!" />
+            <div class="details">
+              <div class="info">
+                <p class="title">DC Super Hero Girls</p>
+                <div class="subinfo">
+                  <span class="year">2013</span>
+                  <span class="episodes">Ep: ?</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/Cartoon-Network-Logo-transparent-PNG.png" alt="Max" />
+            </div>
+          </div>
+          <!-- Additional items (e.g., Aquaman: King of Atlantis, DC Super Hero Girls) go here -->
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'vertical', 1)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Gallery 3: Upcoming Shows -->
+    <section class="gallery vertical" data-gallery-index="2">
+      <h2>Upcoming Shows</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'vertical', 2)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/upcoming/super-powers-280x420.png" alt="Super Powers" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Super Powers</p>
+                <div class="subinfo">
+                  <span class="year">TBA</span>
+                  <span class="episodes">TBA</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/Cartoon-Network-Logo-transparent-PNG.png" alt="Channel" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/upcoming/marvel-zombies-280x420.jpg" alt="Marvel Zombies" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Marvel Zombies</p>
+                <div class="subinfo">
+                  <span class="year">2025</span>
+                  <span class="episodes">TBA</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-plus-logo-transparent.png" alt="Channel" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/upcoming/eyes-of-wakanda-280x420.jpg" alt="Eyes of Wakanda"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Eyes of Wakanda</p>
+                <div class="subinfo">
+                  <span class="year">2025</span>
+                  <span class="episodes">TBA</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-plus-logo-transparent.png" alt="Channel" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/upcoming/adventures-green-lantern-280x420.png" alt="My Adventures with Green Lantern" />
+            <div class="details">
+              <div class="info">
+                <p class="title">My Adventures with Green Lantern</p>
+                <div class="subinfo">
+                  <span class="year">TBA</span>
+                  <span class="episodes">TBA</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/Cartoon-Network-Logo-transparent-PNG.png" alt="Channel" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/upcoming/starfire-280x420.png" alt="Starfire" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Starfire</p>
+                <div class="subinfo">
+                  <span class="year">TBA</span>
+                  <span class="episodes">TBA</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/Cartoon-Network-Logo-transparent-PNG.png" alt="Channel" />
+            </div>
+          </div>
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'vertical', 2)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Gallery 4: 2010's Shows -->
+    <section class="gallery vertical" data-gallery-index="3">
+      <h2>2010's Shows</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'vertical', 3)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/2010/avengers-earths-mightiest-heroes-280x420.jpg" alt="The Avengers: Earth's Mightiest Heroes" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Avengers: Earth's Mightiest Heroes</p>
+                <div class="subinfo">
+                  <span class="year">2010-2012</span>
+                  <span class="episodes">/ 2 seasons - 52 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-xd-logo.png" alt="Disney XD" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2010/green-lantern-animated-280x420.png" alt="Green Lantern: The Animated Series" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Green Lantern: The Animated Series</p>
+                <div class="subinfo">
+                  <span class="year">2011–2013</span>
+                  <span class="episodes">/ 1 season - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/Cartoon-Network-Logo-transparent-PNG.png" alt="Cartoon Network" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2010/ultimate-spider-man-280x420.jpg" alt="Ultimate Spider-Man" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Ultimate Spider-Man</p>
+                <div class="subinfo">
+                  <span class="year">2012–2017</span>
+                  <span class="episodes">/ 4 seasons - 104 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-xd-logo.png" alt="Disney XD" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2010/beware-the-batman-280x420.png" alt="Beware the Batman"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Beware the Batman</p>
+                <div class="subinfo">
+                  <span class="year">2013–2014</span>
+                  <span class="episodes">/ 1 season - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/adult-swim-white-logo.png" alt="Adult Swim" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2010/avengers-assemble-280x420.jpg" alt="Avengers Assemble"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Avengers Assemble</p>
+                <div class="subinfo">
+                  <span class="year">2013-2019</span>
+                  <span class="episodes">/ 5 seasons - 127 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-xd-logo.png" alt="Disney XD" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2010/hulk-agents-smash-280x420.jpg" alt="Avengers Assemble"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Hulk and the Agents of S.M.A.S.H.</p>
+                <div class="subinfo">
+                  <span class="year">2013–2015</span>
+                  <span class="episodes">/ 2 seasons - 52 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-xd-logo.png" alt="Disney XD" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2010/justice-league-action-280x420.jpg" alt="Justice League Action"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Justice League Action</p>
+                <div class="subinfo">
+                  <span class="year">2016–2018</span>
+                  <span class="episodes">/ 1 season - 52 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/Cartoon-Network-Logo-transparent-PNG.png" alt="Cartoon Network" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2010/guardians-of-the-galaxy-280x420.jpg" alt="Guardians of The Galaxy"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Guardians of The Galaxy</p>
+                <div class="subinfo">
+                  <span class="year">2015–2019</span>
+                  <span class="episodes">/ 3 seasons - 79 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-xd-logo.png" alt="Disney XD" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2010/marvel-spiderman-280x420.png" alt="Marvel's Spider-Man"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Marvel's Spider-Man</p>
+                <div class="subinfo">
+                  <span class="year">2017–2020</span>
+                  <span class="episodes">/ 3 seasons - 58 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-xd-logo.png" alt="Disney XD" />
+            </div>
+          </div>
+          <!-- Add more items as needed -->
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'vertical', 3)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Gallery 5: Anime -->
+    <section class="gallery vertical" data-gallery-index="4">
+      <h2>Anime</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'vertical', 4)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/anime/suicide-squad-isekai-280x420.jpg" alt="Suicide Squad Isekai" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Suicide Squad: Isekai</p>
+                <div class="subinfo">
+                  <span class="year">2024</span>
+                  <span class="episodes">/ 1 season - 10 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/max_logo-white-transparent-843x279.png" alt="Max" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/anime/marvel-future-avengers-280x420.jpg" alt="Marvel Future Avengers" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Marvel Future Avengers</p>
+                <div class="subinfo">
+                  <span class="year">2017-2018</span>
+                  <span class="episodes">/ 2 seasons - 39 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/dlife-transparent.png" alt="Dlife" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/anime/marvel-disk-war-avengers-280x420.png" alt="Marvel Disk Wars: The Avengers" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Marvel Disk Wars: The Avengers</p>
+                <div class="subinfo">
+                  <span class="year">2014-2015</span>
+                  <span class="episodes">/ 1 season - 51 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-xd-logo.png" alt="Disney XD" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/anime/batman-ninja-280x420.png" alt="Batman Ninja" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Batman Ninja</p>
+                <div class="subinfo">
+                  <span class="year">2012</span>
+                  <span class="episodes">Movie</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/max_logo-white-transparent-843x279.png" alt="Channel" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/anime/marvel-iron-man-280x420.jpg" alt="Marvel Anime: Iron Man" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Marvel Anime: Iron Man</p>
+                <div class="subinfo">
+                  <span class="year">2011</span>
+                  <span class="episodes">/ 1 season - 12 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/animax-transparent-logo.png" alt="Animax" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/anime/marvel-wolverine-280x420.jpg" alt="Marvel Anime: Wolverine" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Marvel Anime: Wolverine</p>
+                <div class="subinfo">
+                  <span class="year">2011</span>
+                  <span class="episodes">/ 1 season - 12 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/animax-transparent-logo.png" alt="Animax" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/anime/marvel-x-men-280x420.jpg" alt="Marvel Anime: X-Men" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Marvel Anime: X-Men</p>
+                <div class="subinfo">
+                  <span class="year">2011</span>
+                  <span class="episodes">/ 1 season - 12 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/animax-transparent-logo.png" alt="Animax" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/anime/marvel-blade-280x420.jpg" alt="Marvel Anime: Blade" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Marvel Anime: Blade</p>
+                <div class="subinfo">
+                  <span class="year">2011</span>
+                  <span class="episodes">/ 1 season - 12 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/animax-transparent-logo.png" alt="Animax" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/anime/titans-paper-scissors-stone-280x420.png" alt="Titans: Paper Scissors Stone" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Titans: Paper Scissors Stone</p>
+                <div class="subinfo">
+                  <span class="year">1998</span>
+                  <span class="episodes">Comic</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/DC-Comics-Logo.png" alt="DC" />
+            </div>
+          </div>
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'vertical', 4)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Gallery 6: 2000's Shows -->
+    <section class="gallery vertical" data-gallery-index="5">
+      <h2>2000's Shows</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'vertical', 5)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/2000/x-men-evolution-280x420.jpg" alt="X-Men: Evolution" />
+            <div class="details">
+              <div class="info">
+                <p class="title">X-Men: Evolution</p>
+                <div class="subinfo">
+                  <span class="year">2000-2003</span>
+                  <span class="episodes">/ 4 seasons - 52 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/kids-wb-logo-color-transparent-02.png" alt="Kids WB" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/static-shock-280x420.jpg" alt="Static Shock" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Static Shock</p>
+                <div class="subinfo">
+                  <span class="year">2000-2004</span>
+                  <span class="episodes">/ 4 seasons - 52 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/kids-wb-logo-color-transparent-02.png" alt="Kids WB" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/the-zeta-project-280x420.png" alt="The Zeta Project" />
+            <div class="details">
+              <div class="info">
+                <p class="title">The Zeta Project</p>
+                <div class="subinfo">
+                  <span class="year">2001-2002</span>
+                  <span class="episodes">/ 2 seasons - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/kids-wb-logo-color-transparent-02.png" alt="Kids WB" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/justice-league-280x420.jpg" alt="Justice League"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Justice League</p>
+                <div class="subinfo">
+                  <span class="year">2001-2004</span>
+                  <span class="episodes">/ 2 seasons - 52 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/cartoon-network-2000s-logo.png" alt="Cartoon Network" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/teen-titans-280x420.jpg" alt="Teen Titans"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Teen Titans</p>
+                <div class="subinfo">
+                  <span class="year">2003-2006</span>
+                  <span class="episodes">/ 5 seasons - 65 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/cartoon-network-2000s-logo.png" alt="Cartoon Network" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/justice-league-unlimited-280x420.jpg" alt="Justice League Unlimited"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Justice League Unlimited</p>
+                <div class="subinfo">
+                  <span class="year">2004-2006</span>
+                  <span class="episodes">/ 3 seasons - 39 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/cartoon-network-2000s-logo.png" alt="Cartoon Network" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/the-batman-280x420.jpg" alt="The Batman"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">The Batman</p>
+                <div class="subinfo">
+                  <span class="year">2004-2008</span>
+                  <span class="episodes">/ 5 seasons - 65 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/kids-cw-logo.png" alt="Cartoon Network" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/fantastic-four-greatest-heroes-280x420.jpg" alt="Fantastic Four"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Fantastic Four</p>
+                <div class="subinfo">
+                  <span class="year">2006-2007</span>
+                  <span class="episodes">/ 1 season - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/cartoon-network-2000s-logo.png" alt="Cartoon Network" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/legion-of-superheroes-280x420.jpg" alt="Legion of Superheroes"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Legion of Superheroes</p>
+                <div class="subinfo">
+                  <span class="year">2006-2008</span>
+                  <span class="episodes">/ 2 seasons - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/cartoon-network-2000s-logo.png" alt="Cartoon Network" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/spectacular-spider-man-280x420.jpg" alt="The Spectacular Spider-Man"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">The Spectacular Spider-Man</p>
+                <div class="subinfo">
+                  <span class="year">2008-2009</span>
+                  <span class="episodes">/ 2 seasons - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/disney-xd-logo.png" alt="Disney XD" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/wolverine-and-the-xmen-280x420.png" alt="Wolverine and the X-Men"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Wolverine and the X-Men</p>
+                <div class="subinfo">
+                  <span class="year">2009</span>
+                  <span class="episodes">/ 1 season - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/nicktoons-orange-logo.png" alt="Disney XD" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/2000/iron-man-armored-adventures-280x420.jpg" alt="Wolverine and the X-Men"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Iron Man: Armored Adventures</p>
+                <div class="subinfo">
+                  <span class="year">2009-2012</span>
+                  <span class="episodes">/ 2 seasons - 52 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/nicktoons-orange-logo.png" alt="Disney XD" />
+            </div>
+          </div>
+          <!-- Add additional items for Gallery 6 as needed -->
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'vertical', 5)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Gallery 7: 90's Shows -->
+    <section class="gallery vertical" data-gallery-index="6">
+      <h2>90's Shows</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'vertical', 6)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/1990/batman-animated-280x420.jpg" alt="Batman: The Animated Series" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Batman: The Animated Series</p>
+                <div class="subinfo">
+                  <span class="year">1992-1995</span>
+                  <span class="episodes">/ 2 Seasons - 85 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/FOX_Kids_logo-_200___176-transparent.png" alt="Fox Kids" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/x-men-animated-280x420.jpg" alt="X-Men: The Animated Series" />
+            <div class="details">
+              <div class="info">
+                <p class="title">X-Men: The Animated Series</p>
+                <div class="subinfo">
+                  <span class="year">1992-1997</span>
+                  <span class="episodes">/ 5 Seasons - 76 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/FOX_Kids_logo-_200___176-transparent.png" alt="Fox Kids" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/spiderman-animated-280x420.jpg" alt="Spider-Man: The Animated Series" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Spider-Man: The Animated Series</p>
+                <div class="subinfo">
+                  <span class="year">1994-1998</span>
+                  <span class="episodes">/ 5 Seasons - 65 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/FOX_Kids_logo-_200___176-transparent.png" alt="Fox Kids" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/superman-animated-280x420.jpg" alt="Superman: The Animated Series" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Superman: The Animated Series</p>
+                <div class="subinfo">
+                  <span class="year">1996-2000</span>
+                  <span class="episodes">/ 4 Seasons - 54 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/kids-wb-logo-color-transparent-02.png" alt="Kids WB" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/fantastic-four-animated-280x420.jpg" alt="Fantastic Four" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Fantastic Four</p>
+                <div class="subinfo">
+                  <span class="year">1994-1996</span>
+                  <span class="episodes">/ 2 Seasons - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/FOX_Kids_logo-_200___176-transparent.png" alt="Fox Kids" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/iron-man-animated.jpg" alt="Iron Man" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Iron Man</p>
+                <div class="subinfo">
+                  <span class="year">1994-1996</span>
+                  <span class="episodes">/ 2 Seasons - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/FOX_Kids_logo-_200___176-transparent.png" alt="Fox Kids" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/incredible-hulk-280x420.jpg" alt="The Incredible Hulk" />
+            <div class="details">
+              <div class="info">
+                <p class="title">The Incredible Hulk</p>
+                <div class="subinfo">
+                  <span class="year">1996-1997</span>
+                  <span class="episodes">/ 2 Seasons - 21 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/upn-kids-color-logo.png" alt="UPN Kids" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/new-batman-adventures-280x420.png" alt="New Batman Adventures"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">New Batman Adventures</p>
+                <div class="subinfo">
+                  <span class="year">1997-1999</span>
+                  <span class="episodes">/ 1 Season - 24 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/kids-wb-logo-color-transparent-02.png" alt="Kids WB"/>
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/silver-surfer-280x420.jpg" alt="Silver Surfer" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Silver Surfer</p>
+                <div class="subinfo">
+                  <span class="year">1998</span>
+                  <span class="episodes">/ 1 Season - 13 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/FOX_Kids_logo-_200___176-transparent.png" alt="Fox Kids" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/batman-beyond-280x420.jpg" alt="Batman Beyond" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Batman Beyond</p>
+                <div class="subinfo">
+                  <span class="year">1999-2001</span>
+                  <span class="episodes">/ 3 Seasons - 52 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/kids-wb-logo-color-transparent-02.png" alt="Kids WB" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/spiderman-unlimited-280x420.jpg" alt="Spider-Man: Unlimited" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Spider-Man: Unlimited</p>
+                <div class="subinfo">
+                  <span class="year">1999</span>
+                  <span class="episodes">/ 1 Season - 13 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/FOX_Kids_logo-_200___176-transparent.png" alt="Fox Kids" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/avengers-united-they-stand-280x420.jpg" alt="The Avengers: United They Stand" />
+            <div class="details">
+              <div class="info">
+                <p class="title">The Avengers: United They Stand</p>
+                <div class="subinfo">
+                  <span class="year">1999</span>
+                  <span class="episodes">/ 1 Season - 13 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/FOX_Kids_logo-_200___176-transparent.png" alt="Fox Kids" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/wildcats-vertical-280x420.png" alt="WildC.A.T.S: Covert Action Teams" />
+            <div class="details">
+              <div class="info">
+                <p class="title">WildC.A.T.S: Covert Action Teams</p>
+                <div class="subinfo">
+                  <span class="year">1994</span>
+                  <span class="episodes">/ 1 Season - 13 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/usa-network-white-transparent-961x337.png" alt="USA Network"/>
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/ultraforce-vertical-280x420.png" alt="Ultraforce" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Ultraforce</p>
+                <div class="subinfo">
+                  <span class="year">1995-1996</span>
+                  <span class="episodes">/ 1 Season - 13 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/usa-network-white-transparent-961x337.png" alt="USA Network"/>
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/the-savage-dragon-vertical-280x420.png" alt="The Savage Dragon" />
+            <div class="details">
+              <div class="info">
+                <p class="title">The Savage Dragon</p>
+                <div class="subinfo">
+                  <span class="year">1995</span>
+                  <span class="episodes">/ 2 Season - 26 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/usa-network-white-transparent-961x337.png" alt="USA Network"/>
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/spawn-280x420.jpg" alt="Spawn" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Spawn</p>
+                <div class="subinfo">
+                  <span class="year">1997</span>
+                  <span class="episodes">/ 3 Seasons - 18 episodes</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/hbo-logo-grey.png" alt="HBO"/>
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/1990/gen-13-280x420.png" alt="Gen 13" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Gen 13</p>
+                <div class="subinfo">
+                  <span class="year">1998</span>
+                  <span class="episodes">Direct to DVD movie</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/warner-bros-home-logo-transparent.png" alt="Warner Bros."/>
+            </div>
+          </div>
+          <!-- Add additional items for Gallery 7 as needed -->
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'vertical', 6)">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Gallery 8: Projects -->
+    <section class="gallery vertical" data-gallery-index="7">
+      <h2>Projects</h2>
+      <div class="gallery-wrapper">
+        <button class="prev-btn" onclick="moveSlide(-1, 'vertical', 7)">&#10094;</button>
+        <div class="gallery-container">
+          <div class="item">
+            <img src="img/projects/pryde-of-the-xmen-280x420.png" alt="Pryde of The X-Men"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Pryde of The X-Men</p>
+                <div class="subinfo">
+                  <span class="year">1989</span>
+                  <span class="episodes">Pilot</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/marvel-transparent-logo.png" alt="Channel"/>
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/projects/solarman-animated-280x420.png" alt="Solarman: Animated"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Solarman: Animated Series</p>
+                <div class="subinfo">
+                  <span class="year">1992</span>
+                  <span class="episodes">Pilot</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/marvel-transparent-logo.png" alt="Channel"/>
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/projects/wonder-woman-star-riders.png" alt="Wonder Woman" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Wonder Woman and Star Riders</p>
+                <div class="subinfo">
+                  <span class="year">1993</span>
+                  <span class="episodes">Pilot</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/DC-Comics-Logo.png" alt="DC" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/projects/captain-america-animated-280x420.png" alt="Captain America"/>
+            <div class="details">
+              <div class="info">
+                <p class="title">Captain America: Animated Series</p>
+                <div class="subinfo">
+                  <span class="year">1998</span>
+                  <span class="episodes">Fox Kids</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/marvel-transparent-logo.png" alt="Channel" />
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/projects/daredevil-animated-280x420.png" alt="Daredevil" />
+            <div class="details">
+              <div class="info">
+                <p class="title">Daredevil</p>
+                <div class="subinfo">
+                  <span class="year">TBA</span>
+                  <span class="episodes">Pilot</span>
+                </div>
+              </div>
+              <img class="channel-logo" src="img/logos/marvel-transparent-logo.png" alt="Channel" />
+            </div>
+          </div>
+          <!-- Add additional items for Gallery 8 as needed -->
+        </div>
+        <button class="next-btn" onclick="moveSlide(1, 'vertical', 7)">&#10095;</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+CSS
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #111;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  background: #000;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #e50914;
+}
+
+/* HERO SLIDER */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.hero-wrapper {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.hero-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.hero-slide {
+  position: relative;
+  min-width: 100%;
+  padding-bottom: 56.25%; /* 720/1280 = 56.25% */
+  overflow: hidden;
+}
+
+.hero-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  left: 5%;
+  top: 30%;
+  transform: translateY(-50%);
+  max-width: 40%;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.show-description {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.hero-buttons button {
+  margin-right: 10px;
+  margin-top: 10px;
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero-buttons button:hover {
+  background: #f40612;
+}
+
+.hero-prev,
+.hero-next {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: white;
+  font-size: 36px;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.hero-prev:hover,
+.hero-next:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero-prev {
+  left: 0;
+}
+
+.hero-next {
+  right: 0;
+}
+
+/* GALLERY STYLES */
+.gallery {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.gallery h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Gallery Wrapper */
+.gallery-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Navigation Buttons */
+.prev-btn,
+.next-btn {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+/* Gallery Container */
+.gallery-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Vertical Gallery: 4 items, each 280px wide, gap 20px */
+/* Example: Tighter gap for vertical galleries */
+.gallery.vertical .gallery-container {
+  gap: 15px; /* reduced from 20px */
+}
+
+.gallery.vertical .item {
+  width: 280px;        /* fixed width so exactly 4 fit in 1120px + gaps */
+  flex: 0 0 auto;      /* ensure items don’t shrink */
+  background: #222;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery.vertical .item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Force the image to 280×420 to keep consistent ratio */
+.gallery.vertical .item img {
+  width: 280px;
+  height: 420px;
+  object-fit: cover; /* or 'contain' if you prefer no cropping */
+}
+
+/* Horizontal Gallery (if needed): items are 320px wide, gap 30px */
+.gallery.horizontal .gallery-container {
+  gap: 30px;
+}
+
+.gallery.horizontal .item {
+  width: 320px;
+  flex: 0 0 auto;
+}
+
+/* Item Details */
+.item .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px 10px;
+  background: #000;
+}
+
+.item .details .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.item .details .info .title {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.item .details .subinfo {
+  font-size: 12px;
+  color: #ccc;
+  display: flex;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+/* Channel Logo */
+.channel-logo {
+  width: 40px !important;
+  height: auto !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-text {
+    max-width: 60%;
+    top: 40%;
+  }
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+  .vertical .item {
+    width: 200px;
+  }
+  .horizontal .item {
+    width: 220px;
+  }
+  .prev-btn,
+  .next-btn,
+  .hero-prev,
+  .hero-next {
+    font-size: 18px;
+    padding: 8px;
+  }
+}

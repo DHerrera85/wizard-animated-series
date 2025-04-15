@@ -24,28 +24,54 @@
 </head>
 <body>
 
-<header>
-  <div class="header-left">
-    <div class="logo"><img src="img/logos/wizard-logo-transparent.png" alt="Wizard Logo" /></div>
-    <nav>
-      <ul>
-        <li><a href="#">Adult</a></li>
-        <li><a href="#">Family</a></li>
-        <li><a href="#">Upcoming</a></li>
-        <li><a href="#">2010's</a></li>
-        <li><a href="#">Anime</a></li>
-        <li><a href="#">2000's</a></li>
-        <li><a href="#">90's</a></li>
-        <li><a href="#">Projects</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <header>
+    <div class="header-left">
+  
+      <!-- LOGO -->
+      <div class="logo">
+        <img src="img/logos/wizard-logo-transparent.png" alt="Wizard logo">
+      </div>
+  
+      <!-- DESKTOP / TABLET NAV (≥ 769 px) -->
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#adult">Adult</a></li>
+          <li><a href="#family">Family</a></li>
+          <li><a href="#upcoming">Upcoming</a></li>
+          <li><a href="#y2010">2010's</a></li>
+          <li><a href="#anime">Anime</a></li>
+          <li><a href="#y2000">2000's</a></li>
+          <li><a href="#y90">90's</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </nav>
+  
+      <!-- MOBILE NAV (≤ 768 px) -->
+      <nav class="mobile-nav js-flickity"
+           data-flickity='{
+             "contain": true,
+             "prevNextButtons": false,
+             "pageDots": false
+           }'>
+  
+        <div class="nav-cell"><a href="#adult">Adult</a></div>
+        <div class="nav-cell"><a href="#family">Family</a></div>
+        <div class="nav-cell"><a href="#upcoming">Upcoming</a></div>
+        <div class="nav-cell"><a href="#y2010">2010's</a></div>
+        <div class="nav-cell"><a href="#anime">Anime</a></div>
+        <div class="nav-cell"><a href="#y2000">2000's</a></div>
+        <div class="nav-cell"><a href="#y90">90's</a></div>
+        <div class="nav-cell"><a href="#projects">Projects</a></div>
+      </nav>
+  
+    </div>
+  </header>
+  
 
 <main>
 
   <!-- HERO SLIDER -->
-  <section class="hero-slider">
+  <section id="top" class="hero-slider">
     <div class="hero-container js-flickity"
          data-flickity='{"wrapAround":true,"pageDots":false,"prevNextButtons":true,"cellAlign":"left","contain":true,"imagesLoaded":true}'>
       <!-- slide cells -->
@@ -58,7 +84,7 @@
   </section>
 
   <!-- GALLERY 1 – ADULT -->
-  <section class="gallery vertical"><h2>Latest Adult Animated Shows</h2>
+  <section id="adult" class="gallery vertical"><h2>Latest Adult Animated Shows</h2>
     <div class="gallery-container js-flickity" data-flickity='{"groupCells":1,"wrapAround":true,"pageDots":false,"prevNextButtons":true,"cellAlign":"left","contain":true,"imagesLoaded":true}'>
       <!-- items (same as previous) -->
       <div class="item"><img src="img/latest-adult/invincible-vertical-280x420.jpg" alt="Invincible" /><div class="details"><div class="info"><p class="title">Invincible</p><div class="subinfo"><span class="year">2021‑Present</span><span class="episodes">/ 3 seasons ‑ 25 episodes</span></div></div><img class="channel-logo" src="img/logos/prime-video-white-transparent.png" alt="Prime Video"></div></div>
@@ -74,7 +100,7 @@
   </section>
 
   <!-- GALLERY 2 – FAMILY -->
-  <section class="gallery vertical"><h2>Latest Family Friendly Shows</h2>
+  <section id="family" class="gallery vertical"><h2>Latest Family Friendly Shows</h2>
     <div class="gallery-container js-flickity" data-flickity='{"groupCells":1,"wrapAround":true,"pageDots":false,"prevNextButtons":true,"cellAlign":"left","contain":true,"imagesLoaded":true}'>
       <!-- items -->
       <div class="item"><img src="img/latest-family/friendly-spiderman-280x420.jpg" alt="Friendly Neighborhood Spider‑Man" /><div class="details"><div class="info"><p class="title">Friendly Neighborhood Spider‑Man</p><div class="subinfo"><span class="year">2024‑Present</span><span class="episodes">/ 1 season ‑ 10 episodes</span></div></div><img class="channel-logo" src="img/logos/disney-plus-logo-transparent.png" alt="Disney+"></div></div>
@@ -87,7 +113,7 @@
   </section>
 
   <!-- GALLERY 3 – UPCOMING -->
-  <section class="gallery vertical"><h2>Upcoming Shows</h2>
+  <section id="upcoming" class="gallery vertical"><h2>Upcoming Shows</h2>
     <div class="gallery-container js-flickity" data-flickity='{"groupCells":1,"wrapAround":true,"pageDots":false,"prevNextButtons":true,"cellAlign":"left","contain":true,"imagesLoaded":true}'>
       <div class="item"><img src="img/upcoming/super-powers-280x420.png" alt="Super Powers" /><div class="details"><div class="info"><p class="title">Super Powers</p><div class="subinfo"><span class="year">TBA</span><span class="episodes">TBA</span></div></div><img class="channel-logo" src="img/logos/Cartoon-Network-Logo-transparent-PNG.png" alt="Cartoon Network"></div></div>
       <div class="item"><img src="img/upcoming/marvel-zombies-280x420.jpg" alt="Marvel Zombies" /><div class="details"><div class="info"><p class="title">Marvel Zombies</p><div class="subinfo"><span class="year">2025</span><span class="episodes">TBA</span></div></div><img class="channel-logo" src="img/logos/disney-plus-logo-transparent.png" alt="Disney+"></div></div>
@@ -98,7 +124,7 @@
   </section>
 
   <!-- GALLERY 4 – 2010s -->
-  <section class="gallery vertical"><h2>2010's Shows</h2>
+  <section id="y2010" class="gallery vertical"><h2>2010's Shows</h2>
     <div class="gallery-container js-flickity" data-flickity='{"groupCells":1,"wrapAround":true,"pageDots":false,"prevNextButtons":true,"cellAlign":"left","contain":true,"imagesLoaded":true}'>
       <!-- copy of all 2010s items -->
       <div class="item"><img src="img/2010/avengers-earths-mightiest-heroes-280x420.jpg" alt="Avengers: Earth's Mightiest Heroes" /><div class="details"><div class="info"><p class="title">Avengers: Earth's Mightiest Heroes</p><div class="subinfo"><span class="year">2010-2012</span><span class="episodes">/ 2 seasons ‑ 52 episodes</span></div></div><img class="channel-logo" src="img/logos/disney-xd-logo.png" alt="Disney XD"></div></div>
@@ -114,7 +140,7 @@
   </section>
 
   <!-- GALLERY 5 – ANIME -->
-  <section class="gallery vertical"><h2>Anime</h2>
+  <section id="anime" class="gallery vertical"><h2>Anime</h2>
     <div class="gallery-container js-flickity" data-flickity='{"groupCells":1,"wrapAround":true,"pageDots":false,"prevNextButtons":true,"cellAlign":"left","contain":true,"imagesLoaded":true}'>
       <!-- items (same as earlier) -->
       <div class="item"><img src="img/anime/suicide-squad-isekai-280x420.jpg" alt="Suicide Squad Isekai" /><div class="details"><div class="info"><p class="title">Suicide Squad: Isekai</p><div class="subinfo"><span class="year">2024</span><span class="episodes">/ 1 season ‑ 10 episodes</span></div></div><img class="channel-logo" src="img/logos/max_logo-white-transparent-843x279.png" alt="Max"></div></div>
@@ -130,7 +156,7 @@
   </section>
 
   <!-- GALLERY 6 – 2000s -->
-  <section class="gallery vertical"><h2>2000's Shows</h2>
+  <section id="y2000" class="gallery vertical"><h2>2000's Shows</h2>
     <div class="gallery-container js-flickity" data-flickity='{"groupCells":1,"wrapAround":true,"pageDots":false,"prevNextButtons":true,"cellAlign":"left","contain":true,"imagesLoaded":true}'>
       <!-- items 2000s (shortened for brevity but full list kept) -->
       <div class="item"><img src="img/2000/x-men-evolution-280x420.jpg" alt="X-Men: Evolution" /><div class="details"><div class="info"><p class="title">X-Men: Evolution</p><div class="subinfo"><span class="year">2000-2003</span><span class="episodes">/ 4 seasons ‑ 52 episodes</span></div></div><img class="channel-logo" src="img/logos/kids-wb-logo-color-transparent-02.png" alt="Kids WB"></div></div>
@@ -257,7 +283,7 @@
   </section>
 
   <!-- GALLERY 7 – 90s -->
-  <section class="gallery vertical"><h2>90's Shows</h2>
+  <section id="y90" class="gallery vertical"><h2>90's Shows</h2>
     <div class="gallery-container js-flickity" data-flickity='{"groupCells":1,"wrapAround":true,"pageDots":false,"prevNextButtons":true,"cellAlign":"left","contain":true,"imagesLoaded":true}'>
       <!-- items 90s (full list preserved) -->
       <div class="item"><img src="img/1990/batman-animated-280x420.jpg" alt="Batman: The Animated Series" /><div class="details"><div class="info"><p class="title">Batman: The Animated Series</p><div class="subinfo"><span class="year">1992-1995</span><span class="episodes">/ 2 seasons ‑ 85 episodes</span></div></div><img class="channel-logo" src="img/logos/FOX_Kids_logo-_200___176-transparent.png" alt="Fox Kids"></div></div>
@@ -473,7 +499,7 @@
   </section>
 
   <!-- GALLERY 8 – PROJECTS -->
-  <section class="gallery vertical"><h2>Projects</h2>
+  <section id="projects" class="gallery vertical"><h2>Projects</h2>
     <div class="gallery-container js-flickity" data-flickity='{"groupCells":1,"wrapAround":true,"pageDots":false,"prevNextButtons":true,"cellAlign":"left","contain":true,"imagesLoaded":true}'>
       <div class="item"><img src="img/projects/pryde-of-the-xmen-280x420.png" alt="Pryde of The X-Men" /><div class="details"><div class="info"><p class="title">Pryde of The X-Men</p><div class="subinfo"><span class="year">1989</span><span class="episodes">Pilot</span></div></div><img class="channel-logo" src="img/logos/marvel-transparent-logo.png" alt="Marvel"></div></div>
       <div class="item"><img src="img/projects/solarman-animated-280x420.png" alt="Solarman: Animated" /><div class="details"><div class="info"><p class="title">Solarman: Animated Series</p><div class="subinfo"><span class="year">1992</span><span class="episodes">Pilot</span></div></div><img class="channel-logo" src="img/logos/marvel-transparent-logo.png" alt="Marvel"></div></div>
@@ -482,8 +508,11 @@
       <div class="item"><img src="img/projects/daredevil-animated-280x420.png" alt="Daredevil" /><div class="details"><div class="info"><p class="title">Daredevil</p><div class="subinfo"><span class="year">TBA</span><span class="episodes">Pilot</span></div></div><img class="channel-logo" src="img/logos/marvel-transparent-logo.png" alt="Marvel"></div></div>
     </div>
   </section>
-
 </main>
+
+<button id="backToTop" aria-label="Back to top">▲</button>
+<script src="script.js"></script>
+
 </body>
 </html>
 

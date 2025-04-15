@@ -1,80 +1,46 @@
-// ---------------------------
-// HERO SLIDER LOGIC (5 slides)
-// ---------------------------
-let heroIndex = 0;
+/* =========================================================
+   Wizard – global JS
+   ========================================================= */
 
-function moveHero(direction) {
-  const hero = document.querySelector('.hero-container');
-  const slides = hero.querySelectorAll('.hero-slide');
-  const totalSlides = slides.length;
+   document.addEventListener('DOMContentLoaded', () => {
 
-  heroIndex += direction;
-  if (heroIndex < 0) heroIndex = totalSlides - 1;
-  if (heroIndex >= totalSlides) heroIndex = 0;
+    /* -------------------------------------------------------
+       1.  Scroll‑spy  (highlight nav link for section in view)
+    --------------------------------------------------------*/
+    const navLinks = document.querySelectorAll('header nav a');
+    const sections = Array.from(navLinks).map(link =>
+      document.querySelector(link.getAttribute('href'))
+    );
+  
+    const spy = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          const id   = `#${entry.target.id}`;
+          /* highlight the matching link in *any* nav (desktop or mobile) */
+          document.querySelectorAll(`header nav a[href="${id}"]`)
+                  .forEach(a => a.classList.toggle('active', entry.isIntersecting));
+        });
+      },
+      {
+        /* fire when section top crosses the middle of viewport */
+        rootMargin: '-50% 0px -45% 0px',
+        threshold : 0
+      }
+    );
+  
+    sections.forEach(sec => sec && spy.observe(sec));
+  
+    /* -------------------------------------------------------
+       2.  Back‑to‑top button
+    --------------------------------------------------------*/
+    const MOBILE_THRESHOLD = 120;  // px
+const DESKTOP_THRESHOLD = 400;
 
-  // Each slide occupies 100% width
-  hero.style.transform = `translateX(-${heroIndex * 100}%)`;
-}
+const showAt = window.matchMedia('(max-width: 768px)').matches
+             ? MOBILE_THRESHOLD
+             : DESKTOP_THRESHOLD;
 
-// ---------------------------
-// MULTIPLE GALLERIES LOGIC
-// ---------------------------
-let verticalIndexes = {};
-let horizontalIndexes = {};
-
-function getItemsPerView(galleryType) {
-  // Example: if viewport < 768px, show fewer items
-  if (window.innerWidth < 768) {
-    return 1;  // show 1 item on phones
-  } 
-  // otherwise, keep the original 4 or 3
-  return (galleryType === 'horizontal') ? 3 : 4;
-}
-
-function moveSlide(direction, galleryType, galleryIndex) {
-  const selector = `.gallery.${galleryType}[data-gallery-index="${galleryIndex}"] .gallery-container`;
-  const gallery = document.querySelector(selector);
-  if (!gallery) return;
-
-  const items = gallery.querySelectorAll('.item');
-  const totalItems = items.length;
-
-  // Dynamically get how many items should be in view
-  const itemsPerView = getItemsPerView(galleryType);
-
-  // Retrieve current index or default to 0
-  let index = (galleryType === 'horizontal')
-    ? horizontalIndexes[galleryIndex] || 0
-    : verticalIndexes[galleryIndex] || 0;
-
-  // Increment or decrement
-  index += direction;
-
-  // Calculate maximum slides
-  const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
-  if (index < 0) index = maxIndex;
-  if (index > maxIndex) index = 0;
-
-  // Gap & item width
-  const gap = (galleryType === 'horizontal') ? 30 : 20;
-  const itemWidth = items[0].offsetWidth;
-  const pageWidth = itemsPerView * (itemWidth + gap) - gap;
-
-  // Move the container
-  gallery.style.transform = `translateX(-${index * pageWidth}px)`;
-
-  // Save updated index
-  if (galleryType === 'horizontal') {
-    horizontalIndexes[galleryIndex] = index;
-  } else {
-    verticalIndexes[galleryIndex] = index;
-  }
-}
-
-// Optional: re-calculate on window resize so the slider adjusts if orientation changes
-window.addEventListener('resize', () => {
-  // e.g., if you have 8 vertical galleries
-  for (let i = 0; i < 8; i++) {
-    moveSlide(0, 'vertical', i); 
-  }
+window.addEventListener('scroll', () => {
+  topBtn.classList.toggle('show', window.scrollY > showAt);
 });
+  
