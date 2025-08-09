@@ -21,15 +21,9 @@ header {
   z-index: 100;
 }
 
-.header-left {
-  display: flex;
-  align-items: center;
-}
+.header-left { display: flex; align-items: center; }
 
-.logo img {
-  height: 40px;
-  margin-right: 20px;
-}
+.logo img { height: 40px; margin-right: 20px; }
 
 nav ul {
   list-style: none;
@@ -47,35 +41,18 @@ nav ul li a {
   transition: color 0.3s;
 }
 
-nav ul li a:hover {
-  color: #e50914;
-}
+nav ul li a:hover { color: #e50914; }
 
 /* HERO SLIDER */
-.hero-slider {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  margin-top: 0;
-}
+.hero-slider { position: relative; width: 100%; overflow: hidden; margin-top: 0; }
+.hero-wrapper { position: relative; max-width: 100%; margin: 0 auto; }
 
-.hero-wrapper {
-  position: relative;
-  max-width: 100%;
-  margin: 0 auto;
-}
+/* keep position for overlays */
+.hero-slide { min-width: 100%; overflow: hidden; position: relative; }
 
-/* Remove the old padding hack */
-.hero-slide {                /* keep position:relative in case you use it elsewhere */
-  min-width: 100%;
-  overflow: hidden;
-  /* padding-bottom: 56.25%;   <-- delete this line */
-}
-
-/* Let the image define height */
 .hero-slide img {
   width: 100%;
-  height: auto;              /* natural 16:9 height */
+  height: auto;
   display: block;
   object-fit: cover;
 }
@@ -88,15 +65,8 @@ nav ul li a:hover {
   max-width: 40%;
 }
 
-.hero-text h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.show-description {
-  margin: 5px 0;
-  font-size: 1rem;
-}
+.hero-text h2 { font-size: 2rem; margin-bottom: 10px; }
+.show-description { margin: 5px 0; font-size: 1rem; }
 
 .hero-buttons button {
   margin-right: 10px;
@@ -107,11 +77,13 @@ nav ul li a:hover {
   padding: 10px 14px;
   cursor: pointer;
   transition: background 0.3s;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
-
-.hero-buttons button:hover {
-  background: #f40612;
-}
+.hero-buttons button:hover { background: #f40612; }
 
 .hero-prev,
 .hero-next {
@@ -127,47 +99,17 @@ nav ul li a:hover {
   transform: translateY(-50%);
   transition: background 0.3s, transform 0.3s;
 }
-
 .hero-prev:hover,
-.hero-next:hover {
-  background: rgba(255, 255, 255, 0.6);
-  transform: translateY(-50%) scale(1.1);
-}
+.hero-next:hover { background: rgba(255, 255, 255, 0.6); transform: translateY(-50%) scale(1.1); }
+.hero-prev { left: 0; }
+.hero-next { right: 0; }
 
-.hero-prev {
-  left: 0;
-}
+/* GALLERY */
+.gallery { padding: 20px; max-width: 1200px; margin: auto; }
+.gallery h2 { font-size: 22px; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
-.hero-next {
-  right: 0;
-}
+.gallery-wrapper { position: relative; overflow: hidden; width: 100%; display: flex; align-items: center; margin-bottom: 40px; }
 
-/* GALLERY STYLES */
-.gallery {
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.gallery h2 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Gallery Wrapper */
-.gallery-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-/* Navigation Buttons */
 .prev-btn,
 .next-btn {
   background: rgba(255, 255, 255, 0.3);
@@ -182,141 +124,188 @@ nav ul li a:hover {
   transform: translateY(-50%);
   transition: background 0.3s, transform 0.3s;
 }
-
 .prev-btn:hover,
-.next-btn:hover {
-  background: rgba(255, 255, 255, 0.6);
-  transform: translateY(-50%) scale(1.1);
-}
+.next-btn:hover { background: rgba(255, 255, 255, 0.6); transform: translateY(-50%) scale(1.1); }
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
 
-.prev-btn {
-  left: 0;
-}
-
-.next-btn {
-  right: 0;
-}
-
-/* Gallery Container */
-
-/* Vertical Gallery: 4 items, each 280px wide, gap 20px */
-/* Example: Tighter gap for vertical galleries */
-.gallery.vertical .gallery-container {
-  gap: 15px; /* reduced from 20px */
-}
-
+/* Vertical gallery */
+.gallery.vertical .gallery-container { gap: 15px; }
 .gallery.vertical .item {
-  width: 280px;        /* fixed width so exactly 4 fit in 1120px + gaps */
-  flex: 0 0 auto;      /* ensure items don’t shrink */
+  width: 280px;
+  flex: 0 0 auto;
   background: #222;
   border-radius: 5px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.gallery.vertical .item:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.3); }
 
-.gallery.vertical .item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Force the image to 280×420 to keep consistent ratio */
 .gallery.vertical .item img {
   width: 280px;
   height: 420px;
-  object-fit: cover; /* or 'contain' if you prefer no cropping */
+  object-fit: cover;
 }
 
-/* Horizontal Gallery (if needed): items are 320px wide, gap 30px */
-.gallery.horizontal .gallery-container {
-  gap: 30px;
-}
+/* Horizontal (if used) */
+.gallery.horizontal .gallery-container { gap: 30px; }
+.gallery.horizontal .item { width: 320px; flex: 0 0 auto; }
 
-.gallery.horizontal .item {
-  width: 320px;
-  flex: 0 0 auto;
-}
-
-/* Item Details */
+/* Item details */
 .item .details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 10px 10px;
-  background: #000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 5px 10px 10px; background: #000;
+}
+.item .details .info { display: flex; flex-direction: column; align-items: flex-start; }
+.item .details .info .title { margin: 0; font-size: 14px; line-height: 1.2; }
+.item .details .subinfo { font-size: 12px; color: #ccc; display: flex; gap: 5px; margin-top: 2px; }
+.channel-logo { width: 40px !important; height: auto !important; }
+
+/* Basic responsive bits (hero specifics overridden later on mobile) */
+@media (max-width: 768px) {
+  .vertical .item { width: 200px; }
+  .horizontal .item { width: 220px; }
+  .prev-btn, .next-btn, .hero-prev, .hero-next { font-size: 18px; padding: 8px; }
 }
 
-.item .details .info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+/* Flickity containers */
+.flickity-enabled { display: block !important; transition: none !important; }
+
+html { scroll-behavior: smooth; }
+nav a.active { color: #e50914; font-weight: 700; }
+
+/* Back-to-top button (full styles) */
+#backToTop {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(229, 9, 20, 0.85);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 9999;
 }
+#backToTop.show { opacity: 1; pointer-events: auto; }
+#backToTop:hover { transform: scale(1.1); background: #f40612; }
 
-.item .details .info .title {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.2;
-}
+/* ────────────────────────────────────────────────
+   SHOW / HIDE NAVS (desktop vs mobile)
+   ────────────────────────────────────────────────*/
+.mobile-nav { display: none; }
+.desktop-nav ul { display: flex; gap: 20px; }
 
-.item .details .subinfo {
-  font-size: 12px;
-  color: #ccc;
-  display: flex;
-  gap: 5px;
-  margin-top: 2px;
-}
+/* phones ≤ 768 px */
+@media (max-width: 768px) {
+  /* stack logo above nav */
+  header { flex-direction: column; align-items: flex-start; }
+  .header-left { flex-direction: column; width: 100%; gap: 6px; }
+  .logo img { height: 36px; margin: 0 0 4px 0; }
 
-/* Channel Logo */
-.channel-logo {
-  width: 40px !important;
-  height: auto !important;
-}
-
-/* =========================================================
-   FINAL mobile‑header rules  (append at the very end)
-   =========================================================*/
-   @media (max-width: 768px) {
-
-    /* 1. stack logo above the nav bar */
-    header           { flex-direction: column; align-items: flex-start; }
-    .header-left     { flex-direction: column; width: 100%; gap: 6px; }
-    .logo img        { height: 36px; margin: 0 0 4px 0; }
-  
-    /* 2. make the Flickity bar fill the width and be swipe‑able */
-    .mobile-nav      { display: block; width: 100%; }
-    .mobile-nav .nav-cell {
-      padding: 6px 12px;
-      font-size: 15px;
-      white-space: nowrap;
-      color: #fff;
-    }
-
-    .mobile-nav a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.25s;
-    }
-    
-    .mobile-nav a:hover,
-    .mobile-nav a.active {            /* active = current section */
-      color: #e50914;
-    }
-  
-    /* 3. hide the desktop list */
-    .desktop-nav     { display: none; }
+  /* mobile Flickity nav bar */
+  .desktop-nav { display: none; }
+  .mobile-nav { display: block; width: 100%; }
+  .mobile-nav .nav-cell {
+    padding: 6px 12px;
+    font-size: 15px;
+    white-space: nowrap;
+    color: #fff;                /* force white text (no blue) */
   }
+  .mobile-nav a { color: #fff; text-decoration: none; transition: color .25s; }
+  .mobile-nav a:hover,
+  .mobile-nav a.active { color: #e50914; }
 
-  /* phones ≤ 768 px : slightly smaller button, farther from edges */
+  /* back-to-top sizing on phones */
+  #backToTop { right: 16px; bottom: 16px; width: 38px; height: 38px; font-size: 18px; }
+}
 
-#backToTop { z-index: 9999; }
+/* ────────────────────────────────────────────────
+   MOBILE HERO READABILITY (title/subtitle backplates)
+   ────────────────────────────────────────────────*/
+:root{
+  --hero-title-bg: rgba(10, 132, 255, 0.92); /* blue pill behind H2 (swap for your brand if needed) */
+  --hero-sub-bg:   rgba(0, 0, 0, 0.88);      /* black pill behind subtitle */
+}
 
-/* phones ≤ 768 px : show earlier */
+/* Hero title and subtitle backgrounds for all screen sizes */
+.hero-text h2,
+.hero-text .show-description {
+  display: inline-block;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  line-height: 1.25;
+  border-radius: 8px;
+  padding: 4px 12px;
+  margin: 0 0 8px 0;
+  max-width: 100%;
+}
+
+.hero-text h2 {
+  background: var(--hero-title-bg, rgba(10, 132, 255, 0.92));
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  margin-top: 0;
+  word-break: break-word;
+}
+
+.hero-text .show-description {
+  background: var(--hero-sub-bg, rgba(0, 0, 0, 0.88));
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  word-break: break-word;
+}
+
+@media (max-width: 1024px) {
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+  .hero-text .show-description {
+    font-size: 1rem;
+  }
+}
 
 @media (max-width: 768px) {
-  #backToTop {
-    right: 16px;
-    bottom: 16px;
-    width: 38px;
-    height: 38px;
-    font-size: 18px;
+  .hero-text {
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+    top: auto;
+    transform: none;
+    max-width: 92%;
+    z-index: 3;
+  }
+  .hero-text h2,
+  .hero-text .show-description {
+    font-size: 1.1rem;
+    padding: 4px 8px;
+    margin-bottom: 6px;
+  }
+  .hero-text h2 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+  .hero-text .show-description {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+
+  /* soft bottom gradient for contrast */
+  .hero-slide::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
+    pointer-events: none;
+    z-index: 2;
   }
 }
