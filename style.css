@@ -161,11 +161,95 @@ nav ul li a:hover { color: #e50914; }
 .item .details .subinfo { font-size: 12px; color: #ccc; display: flex; gap: 5px; margin-top: 2px; }
 .channel-logo { width: 40px !important; height: auto !important; }
 
+/* Ajuste específico: Image Comics logo era mucho más grande.
+   Forzar un ancho menor solo para ese archivo concreto. */
+.channel-logo[src*="image-comics-logo-white-transparent-114x200.png"] {
+  width: 20px !important;
+  height: auto !important;
+  /* ajuste opcional de alineación si se necesita:
+     vertical-align: middle; */
+}
+
+.channel-logo[src*="dlife-transparent.png"] {
+  width: 34px !important;
+  height: auto !important;
+  /* ajuste opcional de alineación si se necesita:
+     vertical-align: middle; */
+}
+
 /* Basic responsive bits (hero specifics overridden later on mobile) */
 @media (max-width: 768px) {
   .vertical .item { width: 200px; }
   .horizontal .item { width: 220px; }
   .prev-btn, .next-btn, .hero-prev, .hero-next { font-size: 18px; padding: 8px; }
+}
+
+/* Limitar altura del HERO en pantallas de escritorio para que no ocupe tanto vertical */
+@media (min-width: 769px) {
+  .hero-slider,
+  .hero-container,
+  .hero-slide { 
+    max-height: 480px;
+    height: 480px;
+    overflow: hidden;
+  }
+
+  .hero-slide img {
+    width: 100%;
+    height: 480px;      /* fija la altura en escritorio */
+    object-fit: cover;  /* recorta manteniendo el encuadre */
+  }
+
+  /* centrar el bloque de texto del héroe tras el cambio de altura */
+  .hero-text {
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 45%;
+  }
+
+  /* En escritorio aseguramos que título + tagline se apilen pero los "pills"
+     solo ocupen el ancho del texto (inline-block). */
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .hero-text h2,
+  .hero-text .show-description {
+    display: inline-block;     /* wrap only the text */
+    padding: 6px 14px;
+    border-radius: 8px;
+    max-width: none;           /* permitir que el pill sea tan ancho como el texto */
+  }
+
+  /* si hay botones, mantenerlos abajo con un pequeño margen superior */
+  .hero-buttons { margin-top: 6px; }
+
+  /* Bajar un poco la imagen específica de "Your Friendly Neighborhood Spider‑Man"
+     en escritorio sin cambiar el recorte general. Ajusta el porcentaje si quieres
+     más/menos desplazamiento (p.ej. 65% o 70%). */
+  .hero-slide img[src*="friendly-neighbour-spider-man-1280x720.jpg"] {
+    object-position: center 60%;
+  }
+}
+
+/* Ajuste específico para que el "pill" azul solo rodee el texto en ese slide */
+.hero-slide img[src*="friendly-neighbour-spider-man-1280x720.jpg"] + .hero-text h2,
+.hero-slide img[src*="friendly-neighbour-spider-man-1280x720.jpg"] + .hero-text .show-description {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: fit-content !important;
+  padding: 6px 12px !important;   /* reduce padding si el pill seguía luciendo muy ancho */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Bajar más la imagen para que el rostro no quede recortado (aumentar porcentaje si hace falta) */
+.hero-slide img[src*="friendly-neighbour-spider-man-1280x720.jpg"] {
+  object-position: center 70% !important;
+  object-fit: cover;
 }
 
 /* Flickity containers */
@@ -233,7 +317,8 @@ nav a.active { color: #e50914; font-weight: 700; }
   --hero-sub-bg:   rgba(0, 0, 0, 0.88);      /* black pill behind subtitle */
 }
 
-/* Hero title and subtitle backgrounds for all screen sizes */
+/* Hero title and subtitle backgrounds for all screen sizes
+   — ensure the pill only wraps the text, never expands to container width */
 .hero-text h2,
 .hero-text .show-description {
   display: inline-block;
@@ -243,7 +328,18 @@ nav a.active { color: #e50914; font-weight: 700; }
   border-radius: 8px;
   padding: 4px 12px;
   margin: 0 0 8px 0;
-  max-width: 100%;
+  max-width: fit-content; /* wrap to content */
+  width: auto !important;
+  white-space: normal;
+}
+
+/* Extra safeguard for the specific Spider‑Man slide (desktop overrides already present) */
+.hero-slide img[src*="friendly-neighbour-spider-man-1280x720.jpg"] + .hero-text h2,
+.hero-slide img[src*="friendly-neighbour-spider-man-1280x720.jpg"] + .hero-text .show-description {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: fit-content !important;
+  padding: 6px 12px !important;
 }
 
 .hero-text h2 {
@@ -308,4 +404,19 @@ nav a.active { color: #e50914; font-weight: 700; }
     pointer-events: none;
     z-index: 2;
   }
+}
+
+/* Estilos específicos para el enlace "Benjamin Anders" dentro de .subinfo */
+.subinfo a[href*="benjaminanders.com"] {
+  color: #fff !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+/* Mantener buena señalización al pasar el ratón (subrayado opcional) */
+.subinfo a[href*="benjaminanders.com"]:hover,
+.subinfo a[href*="benjaminanders.com"]:focus {
+  text-decoration: underline;
+  outline: none;
 }

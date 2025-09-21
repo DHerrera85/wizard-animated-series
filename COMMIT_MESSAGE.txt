@@ -1,0 +1,33 @@
+feat(styles): multiple hero & logo tweaks, link styling and layout fixes
+
+- Reduce Image Comics channel logo size to match other channel logos
+  - .channel-logo[src*="image-comics-logo-white-transparent-114x200.png"] width reduced.
+
+- Adjust other channel logos as needed
+  - .channel-logo[src*="dlife-transparent.png"] width adjustment.
+
+- Benjamin Anders link styling
+  - .subinfo a[href*="benjaminanders.com"] => white color, bold, no underline by default; underline on hover/focus.
+
+- Desktop HERO height and readability improvements
+  - Limit hero container height on desktop to 480px.
+  - Force hero images to use object-fit: cover and fixed height on desktop for consistent crop.
+  - Re-center hero text vertically after height change.
+
+- Ensure hero title and tagline stack and render consistently
+  - Force H2 + .show-description to stack (column) on desktop and render as inline-block "pills" so background only wraps text.
+  - Global pill behavior fixed: use max-width: fit-content / width:auto to prevent pills from stretching full width.
+
+- Per-slide fixes
+  - X‑Men '97 and Invincible taglines now stack under titles (desktop).
+  - Your Friendly Neighborhood Spider‑Man:
+    - Restrict blue title pill to just the text (safeguards + inline-block).
+    - Adjust object-position to lower the image (center 70%) so the face is not cropped on desktop.
+
+- Minor CSS housekeeping
+  - Added !important where necessary for targeted overrides.
+  - Kept mobile behavior unchanged; all hero readability overrides scoped to desktop media queries.
+
+Notes:
+- All changes applied to style.css.
+- This file (COMMIT_MESSAGE.txt) summarises the applied adjustments for commit history.
