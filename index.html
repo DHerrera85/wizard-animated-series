@@ -46,26 +46,38 @@
         </ul>
       </nav>
   
-      <!-- MOBILE NAV (≤ 768 px) -->
-      <nav class="mobile-nav js-flickity"
-           data-flickity='{
-             "contain": true,
-             "prevNextButtons": false,
-             "pageDots": false
-           }'>
-  
-        <div class="nav-cell"><a href="#adult">Adult</a></div>
-        <div class="nav-cell"><a href="#family">Family</a></div>
-        <div class="nav-cell"><a href="#upcoming">Upcoming</a></div>
-        <div class="nav-cell"><a href="#y2010">2010's</a></div>
-        <div class="nav-cell"><a href="#anime">Anime</a></div>
-        <div class="nav-cell"><a href="#y2000">2000's</a></div>
-        <div class="nav-cell"><a href="#y90">90's</a></div>
-        <div class="nav-cell"><a href="#projects">Projects</a></div>
-      </nav>
-  
+      <!-- MOBILE NAV (≤ 768 px) - REMOVED: Replaced with Hamburger Menu Drawer -->
+
     </div>
+
+    <!-- HAMBURGER MENU BUTTON (MOBILE ONLY) -->
+    <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
+
+  <!-- MOBILE DRAWER NAVIGATION -->
+  <nav class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <h3>Menu</h3>
+      <button class="close-drawer" id="closeDrawerBtn" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="drawer-menu">
+      <li><a href="#adult">Adult</a></li>
+      <li><a href="#family">Family</a></li>
+      <li><a href="#upcoming">Upcoming</a></li>
+      <li><a href="#y2010">2010's</a></li>
+      <li><a href="#anime">Anime</a></li>
+      <li><a href="#y2000">2000's</a></li>
+      <li><a href="#y90">90's</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
+
+  <!-- OVERLAY (para cerrar drawer al hacer click) -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
   
 
 <main>
