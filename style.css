@@ -422,6 +422,7 @@ nav a.active { color: #e50914; font-weight: 700; }
   }
   .hero-text h2,
   .hero-text .show-description {
+    display: block;
     font-size: 1.1rem;
     padding: 4px 8px;
     margin-bottom: 6px;
