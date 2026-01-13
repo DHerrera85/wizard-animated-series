@@ -138,13 +138,21 @@ nav ul li a:hover { color: #e50914; }
   border-radius: 5px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: auto;
 }
 .gallery.vertical .item:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.3); }
+
+/* Desactivar hover durante el drag/swipe */
+.flickity-enabled.is-pointer-down .item:hover { 
+  transform: none; 
+  box-shadow: none; 
+}
 
 .gallery.vertical .item img {
   width: 280px;
   height: 420px;
   object-fit: cover;
+  display: block;
 }
 
 /* Horizontal (if used) */
@@ -159,7 +167,7 @@ nav ul li a:hover { color: #e50914; }
 .item .details .info { display: flex; flex-direction: column; align-items: flex-start; }
 .item .details .info .title { margin: 0; font-size: 14px; line-height: 1.2; }
 .item .details .subinfo { font-size: 12px; color: #ccc; display: flex; gap: 5px; margin-top: 2px; }
-.channel-logo { width: 40px !important; height: auto !important; }
+.channel-logo { width: 48px !important; height: auto !important; }
 
 /* Ajuste específico: Image Comics logo era mucho más grande.
    Forzar un ancho menor solo para ese archivo concreto. */
@@ -175,6 +183,31 @@ nav ul li a:hover { color: #e50914; }
   height: auto !important;
   /* ajuste opcional de alineación si se necesita:
      vertical-align: middle; */
+}
+
+/* Ajuste: Marvel Action Universe logo (Fantastic Four, Iron Man) */
+.channel-logo[src*="marvel-action-universe-transparent.png"] {
+  width: 60px !important;   /* reducir para no ensanchar la línea */
+  height: auto !important;
+}
+
+/* Ajuste: Fox Kids logo tiene proporciones más cuadradas */
+.channel-logo[src*="FOX_Kids_logo-_200___176-transparent.png"] {
+  width: 38px !important;
+  height: auto !important;
+}
+
+/* Ajuste: Warner Bros logo */
+.channel-logo[src*="warner-bros-home-logo-transparent.png"] {
+  width: 36px !important;
+  height: auto !important;
+}
+
+/* Ajuste: Cartoon Network logos (actual y 2000s) */
+.channel-logo[src*="Cartoon-Network-Logo-transparent-PNG.png"],
+.channel-logo[src*="cartoon-network-2000s-logo.png"] {
+  width: 40px !important;
+  height: auto !important;
 }
 
 /* Basic responsive bits (hero specifics overridden later on mobile) */
@@ -254,6 +287,33 @@ nav ul li a:hover { color: #e50914; }
 
 /* Flickity containers */
 .flickity-enabled { display: block !important; transition: none !important; }
+.flickity-enabled:focus { outline: none; }
+
+/* Prevenir parpadeo en las galerías al hacer clic */
+.gallery-container { visibility: visible !important; opacity: 1 !important; }
+.gallery-container.flickity-enabled { visibility: visible !important; }
+.js-flickity { visibility: visible !important; }
+
+/* Prevenir cambios visuales al hacer clic en items */
+.item:active { transform: none; }
+.item:focus { outline: none; }
+.flickity-viewport { 
+  overflow: hidden; 
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Asegurar visibilidad de items durante drag */
+.flickity-enabled .item { 
+  visibility: visible !important; 
+  opacity: 1 !important;
+  will-change: transform;
+}
+.flickity-enabled.is-dragging .item img,
+.flickity-enabled.is-pointer-down .item img {
+  pointer-events: none;
+  user-select: none;
+}
 
 html { scroll-behavior: smooth; }
 nav a.active { color: #e50914; font-weight: 700; }
