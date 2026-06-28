@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wizard Deck Lab - 90's Trading Card Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style-v2.css" />
+</head>
+<body>
+  <header class="deck-header">
+    <a class="brand-mark" href="#top" aria-label="Wizard Deck Lab home">
+      <img src="img/logos/wizard-logo-transparent.png" alt="Wizard logo" />
+      <span>Deck Lab</span>
+    </a>
+
+    <nav class="deck-nav" aria-label="Primary">
+      <a href="#hero">Adult</a>
+      <a href="#hero">Family</a>
+      <a href="#hero">Upcoming</a>
+      <a href="#hero">2010's</a>
+      <a href="#hero">Anime</a>
+      <a class="is-active" href="#cardGrid">90's</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="header-chip" type="button" data-open-deck>
+        Collection
+        <span id="collectionCount">0</span>
+      </button>
+      <a class="header-link" href="#deckPanel">Deck</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="deck-hero" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Comic card collection</p>
+        <h1>90's legendary deck</h1>
+        <p class="hero-summary">A new product direction for Wizard: less streaming shelf, more collectible archive. Browse the era as if every series were a prized card in a curated comic shop binder.</p>
+
+        <div class="hero-actions">
+          <a class="primary-action" href="#cardGrid">Browse cards</a>
+          <button class="secondary-action" id="drawRandomCard" type="button">Draw random card</button>
+        </div>
+
+        <dl class="hero-stats">
+          <div>
+            <dt>Era focus</dt>
+            <dd>1990-1999</dd>
+          </div>
+          <div>
+            <dt>Deck size</dt>
+            <dd>8 featured cards</dd>
+          </div>
+          <div>
+            <dt>Energy</dt>
+            <dd>Collector + fandom</dd>
+          </div>
+        </dl>
+      </div>
+
+      <aside class="hero-side-panel" aria-label="Collection prompt">
+        <p class="panel-kicker">Build your collection</p>
+        <h2>Explore the greatest era of comic animation.</h2>
+        <p>Mix DC, Marvel and cult adaptations in one deck. Save favorites, compare them, then surface a random pull when you want a surprise rediscovery.</p>
+        <a href="#deckPanel" class="panel-link">Open collector deck</a>
+      </aside>
+    </section>
+
+    <section class="control-bar" aria-label="Deck controls">
+      <div class="filter-row" aria-label="Card filters">
+        <button class="filter-chip is-selected" type="button" data-filter="all">All</button>
+        <button class="filter-chip" type="button" data-filter="marvel">Marvel inspired</button>
+        <button class="filter-chip" type="button" data-filter="dc">DC inspired</button>
+        <button class="filter-chip" type="button" data-filter="cult">Cult classics</button>
+        <button class="filter-chip" type="button" data-filter="lost">Pilots / lost</button>
+      </div>
+
+      <label class="sort-box" for="sortCards">
+        <span>Sort</span>
+        <select id="sortCards">
+          <option value="rarity">Rarity</option>
+          <option value="year">Year</option>
+          <option value="title">Title</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="deck-grid-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Featured pull</p>
+          <h2>90's animated card collection</h2>
+        </div>
+        <p id="statusText">Showing all featured cards.</p>
+      </div>
+
+      <div class="deck-grid" id="cardGrid">
+        <article class="deck-card rarity-legendary" data-card-id="batman-animated" data-title="Batman: The Animated Series" data-year="1992" data-seasons="2 seasons" data-episodes="85 episodes" data-publisher="DC" data-network="Fox Kids" data-rarity="4" data-tags="dc action classic" data-note="No other card in the deck defines the premium noir tone better. This is the gold-standard anchor for the whole collection.">
+          <span class="rarity-badge">Legendary</span>
+          <img src="img/1990/batman-animated-280x420.jpg" alt="Batman: The Animated Series poster" />
+          <div class="card-frame">
+            <p class="card-signal">Fox Kids</p>
+            <h3>Batman: The Animated Series</h3>
+            <p class="card-years">1992-1995 · 2 seasons · 85 episodes</p>
+            <ul class="stat-strip">
+              <li>Legacy 96</li>
+              <li>Action 88</li>
+              <li>Cult 95</li>
+            </ul>
+            <p class="card-tagline">Gotham noir, prestige animation, definitive iconography.</p>
+            <div class="card-actions">
+              <button class="deck-toggle" type="button">Add to deck</button>
+              <button class="compare-toggle" type="button">Compare</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="deck-card rarity-classic" data-card-id="xmen-animated" data-title="X-Men: The Animated Series" data-year="1992" data-seasons="5 seasons" data-episodes="76 episodes" data-publisher="Marvel" data-network="Fox Kids" data-rarity="3" data-tags="marvel action classic" data-note="A team card with huge nostalgia pull, strong serialized energy and direct bridge to modern rediscovery through X-Men '97.">
+          <span class="rarity-badge">Classic</span>
+          <img src="img/1990/x-men-animated-280x420.jpg" alt="X-Men: The Animated Series poster" />
+          <div class="card-frame">
+            <p class="card-signal">Fox Kids</p>
+            <h3>X-Men: The Animated Series</h3>
+            <p class="card-years">1992-1997 · 5 seasons · 76 episodes</p>
+            <ul class="stat-strip">
+              <li>Legacy 92</li>
+              <li>Action 91</li>
+              <li>Cult 88</li>
+            </ul>
+            <p class="card-tagline">Serialized stakes, mutant drama and prime crossover appeal.</p>
+            <div class="card-actions">
+              <button class="deck-toggle" type="button">Add to deck</button>
+              <button class="compare-toggle" type="button">Compare</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="deck-card rarity-classic" data-card-id="spiderman-animated" data-title="Spider-Man: The Animated Series" data-year="1994" data-seasons="5 seasons" data-episodes="65 episodes" data-publisher="Marvel" data-network="Fox Kids" data-rarity="3" data-tags="marvel action classic" data-note="This card carries broad recognition, strong villain variety and a flexible gateway role for users entering the collection.">
+          <span class="rarity-badge">Classic</span>
+          <img src="img/1990/spiderman-animated-280x420.jpg" alt="Spider-Man: The Animated Series poster" />
+          <div class="card-frame">
+            <p class="card-signal">Fox Kids</p>
+            <h3>Spider-Man: The Animated Series</h3>
+            <p class="card-years">1994-1998 · 5 seasons · 65 episodes</p>
+            <ul class="stat-strip">
+              <li>Legacy 90</li>
+              <li>Action 89</li>
+              <li>Cult 84</li>
+            </ul>
+            <p class="card-tagline">Big rogues gallery energy with maximum familiarity.</p>
+            <div class="card-actions">
+              <button class="deck-toggle" type="button">Add to deck</button>
+              <button class="compare-toggle" type="button">Compare</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="deck-card rarity-classic" data-card-id="superman-animated" data-title="Superman: The Animated Series" data-year="1996" data-seasons="4 seasons" data-episodes="54 episodes" data-publisher="DC" data-network="Kids' WB" data-rarity="3" data-tags="dc heroic classic" data-note="An ideal balance card: cleaner optimism than Batman, still premium enough to sit in the same showcase without losing identity.">
+          <span class="rarity-badge">Classic</span>
+          <img src="img/1990/superman-animated-280x420.jpg" alt="Superman: The Animated Series poster" />
+          <div class="card-frame">
+            <p class="card-signal">Kids' WB</p>
+            <h3>Superman: The Animated Series</h3>
+            <p class="card-years">1996-2000 · 4 seasons · 54 episodes</p>
+            <ul class="stat-strip">
+              <li>Legacy 89</li>
+              <li>Action 84</li>
+              <li>Cult 80</li>
+            </ul>
+            <p class="card-tagline">Bright mythmaking with a cleaner heroic silhouette.</p>
+            <div class="card-actions">
+              <button class="deck-toggle" type="button">Add to deck</button>
+              <button class="compare-toggle" type="button">Compare</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="deck-card rarity-cult" data-card-id="spawn" data-title="Spawn" data-year="1997" data-seasons="3 seasons" data-episodes="18 episodes" data-publisher="Image" data-network="HBO" data-rarity="2" data-tags="cult adult rare" data-note="This is where the deck gets edge. Spawn broadens the tone range and gives the collection a darker, adult-only branch.">
+          <span class="rarity-badge">Cult</span>
+          <img src="img/1990/spawn-280x420.jpg" alt="Spawn poster" />
+          <div class="card-frame">
+            <p class="card-signal">HBO</p>
+            <h3>Spawn</h3>
+            <p class="card-years">1997 · 3 seasons · 18 episodes</p>
+            <ul class="stat-strip">
+              <li>Legacy 82</li>
+              <li>Action 74</li>
+              <li>Cult 97</li>
+            </ul>
+            <p class="card-tagline">Adult animation prestige with grim, high-contrast energy.</p>
+            <div class="card-actions">
+              <button class="deck-toggle" type="button">Add to deck</button>
+              <button class="compare-toggle" type="button">Compare</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="deck-card rarity-cult" data-card-id="wildcats" data-title="WildC.A.T.S" data-year="1994" data-seasons="1 season" data-episodes="13 episodes" data-publisher="WildStorm" data-network="USA Network" data-rarity="2" data-tags="cult lost rare" data-note="A deep-cut collector pull. This kind of card makes the product feel curated rather than algorithmic.">
+          <span class="rarity-badge">Cult</span>
+          <img src="img/1990/wildcats-vertical-280x420.png" alt="WildC.A.T.S poster" />
+          <div class="card-frame">
+            <p class="card-signal">USA Network</p>
+            <h3>WildC.A.T.S</h3>
+            <p class="card-years">1994 · 1 season · 13 episodes</p>
+            <ul class="stat-strip">
+              <li>Legacy 72</li>
+              <li>Action 80</li>
+              <li>Cult 90</li>
+            </ul>
+            <p class="card-tagline">Image-era curiosity with prime specialist appeal.</p>
+            <div class="card-actions">
+              <button class="deck-toggle" type="button">Add to deck</button>
+              <button class="compare-toggle" type="button">Compare</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="deck-card rarity-pilot" data-card-id="silver-surfer" data-title="Silver Surfer" data-year="1998" data-seasons="1 season" data-episodes="13 episodes" data-publisher="Marvel" data-network="Fox Kids" data-rarity="1" data-tags="marvel cult lost" data-note="Visually distinct and short-lived. A perfect candidate for the 'Pilots / Lost' lane and collector notes storytelling.">
+          <span class="rarity-badge">Pilot / Lost</span>
+          <img src="img/1990/silver-surfer-280x420.jpg" alt="Silver Surfer poster" />
+          <div class="card-frame">
+            <p class="card-signal">Fox Kids</p>
+            <h3>Silver Surfer</h3>
+            <p class="card-years">1998 · 1 season · 13 episodes</p>
+            <ul class="stat-strip">
+              <li>Legacy 76</li>
+              <li>Action 69</li>
+              <li>Cult 89</li>
+            </ul>
+            <p class="card-tagline">Cosmic art direction that instantly breaks the pattern.</p>
+            <div class="card-actions">
+              <button class="deck-toggle" type="button">Add to deck</button>
+              <button class="compare-toggle" type="button">Compare</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="deck-card rarity-pilot" data-card-id="avengers-united" data-title="The Avengers: United They Stand" data-year="1999" data-seasons="1 season" data-episodes="13 episodes" data-publisher="Marvel" data-network="Fox Kids" data-rarity="1" data-tags="marvel lost action" data-note="This is the prototype of a rare-find card: recognizable brand, uneven legacy, but strong value inside a completionist deck.">
+          <span class="rarity-badge">Pilot / Lost</span>
+          <img src="img/1990/avengers-united-they-stand-280x420.jpg" alt="The Avengers: United They Stand poster" />
+          <div class="card-frame">
+            <p class="card-signal">Fox Kids</p>
+            <h3>The Avengers: United They Stand</h3>
+            <p class="card-years">1999 · 1 season · 13 episodes</p>
+            <ul class="stat-strip">
+              <li>Legacy 70</li>
+              <li>Action 78</li>
+              <li>Cult 83</li>
+            </ul>
+            <p class="card-tagline">Rare-find value with strong completionist appeal.</p>
+            <div class="card-actions">
+              <button class="deck-toggle" type="button">Add to deck</button>
+              <button class="compare-toggle" type="button">Compare</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="utility-strip" aria-label="Deck actions">
+      <button type="button" class="utility-card" data-open-deck>
+        <strong>Build your deck</strong>
+        <span>Save favorite series into a persistent collector list.</span>
+      </button>
+      <button type="button" class="utility-card" id="jumpCompare">
+        <strong>Compare cards</strong>
+        <span>Pin two cards and view their stats side by side.</span>
+      </button>
+      <button type="button" class="utility-card" id="jumpRandom">
+        <strong>Random card</strong>
+        <span>Pull a visible card at random and spotlight it in the deck.</span>
+      </button>
+      <a class="utility-card" href="#collectorNotes">
+        <strong>Collector notes</strong>
+        <span>Read curation logic, era framing and rarity rationale.</span>
+      </a>
+    </section>
+
+    <section class="compare-panel" id="comparePanel">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Comparison table</p>
+          <h2>Card versus card</h2>
+        </div>
+        <p id="compareHint">Select up to two cards to compare.</p>
+      </div>
+
+      <div class="compare-grid" id="compareGrid">
+        <article class="compare-slot is-empty">
+          <p>Choose a card with the Compare button.</p>
+        </article>
+        <article class="compare-slot is-empty">
+          <p>Choose a second card to complete the face-off.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="notes-panel" id="collectorNotes">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Collector notes</p>
+          <h2>How this version improves the original UX</h2>
+        </div>
+      </div>
+
+      <div class="notes-grid">
+        <article>
+          <h3>Stronger product identity</h3>
+          <p>The page now reads like a collectible archive instead of a streaming clone. That shift makes the brand more memorable and gives the 90's section a specific point of view.</p>
+        </article>
+        <article>
+          <h3>Gamification with real behavior</h3>
+          <p>Deck saving and comparison are not decorative labels. They now support actual interaction, which keeps the UI from overpromising.</p>
+        </article>
+        <article>
+          <h3>Catalog clarity stays visible</h3>
+          <p>Every card still surfaces year, season and episode metadata so the visual system does not bury functional information.</p>
+        </article>
+      </div>
+    </section>
+
+    <aside class="deck-panel" id="deckPanel" aria-label="Saved collection">
+      <div class="deck-panel-head">
+        <div>
+          <p class="section-kicker">Your collection</p>
+          <h2>Collector deck</h2>
+        </div>
+        <p id="deckSummary">No cards saved yet.</p>
+      </div>
+
+      <ul class="deck-list" id="deckList">
+        <li class="deck-empty">Use Add to deck on any card to start building your collection.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <script src="script-v2.js"></script>
+</body>
+</html>
