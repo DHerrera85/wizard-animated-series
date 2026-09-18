@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const jumpCompareButton = document.getElementById('jumpCompare');
   const cardGrid = document.getElementById('cardGrid');
 
+  const secretVault = document.getElementById('secretVault');
+  const vaultStatus = document.getElementById('vaultStatus');
+  const vaultProgressText = document.getElementById('vaultProgressText');
+  const vaultProgressBar = document.getElementById('vaultProgressBar');
+  const vaultUnlockGoal = 3;
+
   const rpgMeta = {
     'batman-animated': {
       className: 'Dark Hero Series',
@@ -254,6 +260,33 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       deckList.appendChild(item);
     });
+
+    const renderVault = () => {
+      if (!secretVault) return;
+
+      const savedCount = deck.size;
+      const progress = Math.min(savedCount / vaultUnlockGoal, 1) * 100;
+      const isUnlocked = savedCount >= vaultUnlockGoal;
+
+      secretVault.classList.toggle('is-locked', !isUnlocked);
+      secretVault.classList.toggle('is-unlocked', isUnlocked);
+
+      if (vaultProgressText) {
+        vaultProgressText.textContent = isUnlocked
+          ? 'Vault unlocked'
+          : `${savedCount} / ${vaultUnlockGoal} cards saved`;
+      }
+
+      if (vaultProgressBar) {
+        vaultProgressBar.style.width = `${progress}%`;
+      }
+
+      if (vaultStatus) {
+        vaultStatus.textContent = isUnlocked
+          ? 'Unlocked · Hidden pilot files are now available.'
+          : `Locked · Save ${vaultUnlockGoal - savedCount} more card${vaultUnlockGoal - savedCount === 1 ? '' : 's'} to unlock hidden pilot files.`;
+      }
+    };
   };
 
   const syncDeckButtons = () => {
@@ -412,6 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem(storageKey, JSON.stringify(Array.from(deck)));
       syncDeckButtons();
       renderDeck();
+      renderVault();
     });
 
     compareButton.addEventListener('click', () => {
@@ -460,6 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
   applyFilter('all');
   syncDeckButtons();
   renderDeck();
+  renderVault();
   renderCompare();
   renderCardDetail(cards[0]);
 });
