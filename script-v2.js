@@ -261,42 +261,42 @@ document.addEventListener('DOMContentLoaded', () => {
       deckList.appendChild(item);
     });
 
-    const renderVault = () => {
-      if (!secretVault) return;
+    const syncDeckButtons = () => {
+      cards.forEach(card => {
+        const isSaved = deck.has(card.dataset.cardId);
+        const deckButton = card.querySelector('.deck-toggle');
+        deckButton.classList.toggle('is-added', isSaved);
+        deckButton.textContent = isSaved ? 'Saved to deck' : 'Add to deck';
+        deckButton.setAttribute('aria-pressed', String(isSaved));
+      });
 
-      const savedCount = deck.size;
-      const progress = Math.min(savedCount / vaultUnlockGoal, 1) * 100;
-      const isUnlocked = savedCount >= vaultUnlockGoal;
+      const renderVault = () => {
+        if (!secretVault) return;
 
-      secretVault.classList.toggle('is-locked', !isUnlocked);
-      secretVault.classList.toggle('is-unlocked', isUnlocked);
+        const savedCount = deck.size;
+        const progress = Math.min(savedCount / vaultUnlockGoal, 1) * 100;
+        const isUnlocked = savedCount >= vaultUnlockGoal;
 
-      if (vaultProgressText) {
-        vaultProgressText.textContent = isUnlocked
-          ? 'Vault unlocked'
-          : `${savedCount} / ${vaultUnlockGoal} cards saved`;
-      }
+        secretVault.classList.toggle('is-locked', !isUnlocked);
+        secretVault.classList.toggle('is-unlocked', isUnlocked);
 
-      if (vaultProgressBar) {
-        vaultProgressBar.style.width = `${progress}%`;
-      }
+        if (vaultProgressText) {
+          vaultProgressText.textContent = isUnlocked
+            ? 'Vault unlocked'
+            : `${savedCount} / ${vaultUnlockGoal} cards saved`;
+        }
 
-      if (vaultStatus) {
-        vaultStatus.textContent = isUnlocked
-          ? 'Unlocked · Hidden pilot files are now available.'
-          : `Locked · Save ${vaultUnlockGoal - savedCount} more card${vaultUnlockGoal - savedCount === 1 ? '' : 's'} to unlock hidden pilot files.`;
-      }
+        if (vaultProgressBar) {
+          vaultProgressBar.style.width = `${progress}%`;
+        }
+
+        if (vaultStatus) {
+          vaultStatus.textContent = isUnlocked
+            ? 'Unlocked · Hidden pilot files are now available.'
+            : `Locked · Save ${vaultUnlockGoal - savedCount} more card${vaultUnlockGoal - savedCount === 1 ? '' : 's'} to unlock hidden pilot files.`;
+        }
+      };
     };
-  };
-
-  const syncDeckButtons = () => {
-    cards.forEach(card => {
-      const isSaved = deck.has(card.dataset.cardId);
-      const deckButton = card.querySelector('.deck-toggle');
-      deckButton.classList.toggle('is-added', isSaved);
-      deckButton.textContent = isSaved ? 'Saved to deck' : 'Add to deck';
-      deckButton.setAttribute('aria-pressed', String(isSaved));
-    });
   };
 
   const renderCompare = () => {
