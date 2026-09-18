@@ -15,6 +15,213 @@ document.addEventListener('DOMContentLoaded', () => {
   const jumpCompareButton = document.getElementById('jumpCompare');
   const cardGrid = document.getElementById('cardGrid');
 
+  const rpgMeta = {
+    'batman-animated': {
+      className: 'Dark Hero Series',
+      special: 'Noir Legacy',
+      description: 'A prestige animated icon with strong noir identity, premium storytelling and long-term cultural impact.',
+      evolution: [
+        'Batman: The Animated Series',
+        'The New Batman Adventures',
+        'Batman Beyond'
+      ]
+    },
+    'xmen-animated': {
+      className: 'Team Hero Series',
+      special: 'Serialized Continuity',
+      description: 'A team-based card with strong continuity, mutant drama and one of the clearest bridges between decades.',
+      evolution: [
+        'Pryde of the X-Men',
+        'X-Men: The Animated Series',
+        'Wolverine and the X-Men',
+        "X-Men '97"
+      ]
+    },
+    'spiderman-animated': {
+      className: 'Solo Hero Series',
+      special: 'Villains Gallery',
+      description: 'A flexible gateway card with broad recognition, strong villain variety and classic 90s action appeal.',
+      evolution: [
+        'Spider-Man: The Animated Series',
+        'Spider-Man Unlimited',
+        'The Spectacular Spider-Man',
+        'Ultimate Spider-Man'
+      ]
+    },
+    'superman-animated': {
+      className: 'Legacy Hero Series',
+      special: 'Heroic Mythmaking',
+      description: 'A bright heroic card that balances classic mythology, clean design and accessible adventure.',
+      evolution: [
+        'Superman: The Animated Series',
+        'Justice League',
+        'Justice League Unlimited'
+      ]
+    },
+    spawn: {
+      className: 'Adult Prestige',
+      special: 'Dark Cult Energy',
+      description: 'A darker adult-oriented card that expands the deck beyond Saturday morning animation.',
+      evolution: [
+        'Spawn',
+        'Adult Animation Prestige',
+        'Cult Legacy'
+      ]
+    },
+    wildcats: {
+      className: 'Cult Team Series',
+      special: 'Deep Cut Pull',
+      description: 'A specialist collector card that gives the deck archive value beyond the obvious classics.',
+      evolution: [
+        'WildC.A.T.S',
+        'Image Era Animation',
+        'Cult Archive'
+      ]
+    },
+    'silver-surfer': {
+      className: 'Cosmic Cult Series',
+      special: 'Cosmic Rarity',
+      description: 'A short-lived but visually distinct card with strong rare-find value inside the collection.',
+      evolution: [
+        'Silver Surfer',
+        'Cosmic Marvel Animation',
+        'Lost / Cult Branch'
+      ]
+    },
+    'avengers-united': {
+      className: 'Lost Team Prototype',
+      special: 'Completionist Value',
+      description: 'A rare-find card with uneven legacy but strong appeal for users who want to complete the archive.',
+      evolution: [
+        'The Avengers: United They Stand',
+        'Team Prototype',
+        'Modern Avengers Animation'
+      ]
+    }
+  };
+
+  const deckGridSection = document.querySelector('.deck-grid-section');
+
+  const detailPanel = document.createElement('section');
+  detailPanel.className = 'card-detail-panel';
+  detailPanel.id = 'cardDetailPanel';
+  detailPanel.innerHTML = `
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">RPG card file</p>
+        <h2 id="detailTitle">Select a card</h2>
+      </div>
+      <p id="detailSubtitle">Choose a card to inspect its RPG profile.</p>
+    </div>
+
+    <div class="detail-layout">
+      <div class="detail-poster-wrap">
+        <img id="detailPoster" src="" alt="" />
+      </div>
+
+      <div class="detail-content">
+        <div class="detail-badges">
+          <span id="detailRarity">Rarity</span>
+          <span id="detailClass">Class</span>
+        </div>
+
+        <p id="detailDescription" class="detail-description"></p>
+
+        <div class="detail-stats" id="detailStats"></div>
+
+        <div class="detail-special">
+          <strong>Special Skill</strong>
+          <p id="detailSpecial"></p>
+        </div>
+
+        <div class="detail-evolution">
+          <strong>Evolution Path</strong>
+          <div id="detailEvolution" class="evolution-path"></div>
+        </div>
+
+        <dl class="detail-meta">
+          <div>
+            <dt>Year</dt>
+            <dd id="detailYear"></dd>
+          </div>
+          <div>
+            <dt>Network</dt>
+            <dd id="detailNetwork"></dd>
+          </div>
+          <div>
+            <dt>Seasons</dt>
+            <dd id="detailSeasons"></dd>
+          </div>
+          <div>
+            <dt>Episodes</dt>
+            <dd id="detailEpisodes"></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  `;
+
+  if (deckGridSection) {
+    deckGridSection.after(detailPanel);
+  }
+
+  const readCardStats = card => {
+    const statItems = Array.from(card.querySelectorAll('.stat-strip li'));
+
+    return statItems.map(item => {
+      const text = item.textContent.trim();
+      const match = text.match(/^(.+?)\s+(\d+)$/);
+
+      return {
+        label: match ? match[1] : text,
+        value: match ? match[2] : ''
+      };
+    });
+  };
+
+  const renderCardDetail = card => {
+    if (!card) return;
+
+    const cardId = card.dataset.cardId;
+    const meta = rpgMeta[cardId] || {};
+    const poster = card.querySelector('img');
+    const rarity = card.querySelector('.rarity-badge')?.textContent.trim() || 'Card';
+    const stats = readCardStats(card);
+
+    cards.forEach(item => item.classList.remove('is-detail-active'));
+    card.classList.add('is-detail-active');
+
+    document.getElementById('detailTitle').textContent = card.dataset.title;
+    document.getElementById('detailSubtitle').textContent =
+      `${card.dataset.year} · ${card.dataset.publisher} · ${card.dataset.network}`;
+
+    document.getElementById('detailPoster').src = poster?.getAttribute('src') || '';
+    document.getElementById('detailPoster').alt = poster?.getAttribute('alt') || card.dataset.title;
+
+    document.getElementById('detailRarity').textContent = rarity;
+    document.getElementById('detailClass').textContent = meta.className || 'Animated Series Card';
+    document.getElementById('detailDescription').textContent = meta.description || card.dataset.note;
+    document.getElementById('detailSpecial').textContent = meta.special || 'Collector Value';
+
+    document.getElementById('detailYear').textContent = card.dataset.year;
+    document.getElementById('detailNetwork').textContent = card.dataset.network;
+    document.getElementById('detailSeasons').textContent = card.dataset.seasons;
+    document.getElementById('detailEpisodes').textContent = card.dataset.episodes;
+
+    document.getElementById('detailStats').innerHTML = stats.map(stat => `
+      <div class="detail-stat">
+        <span>${stat.label}</span>
+        <strong>${stat.value}</strong>
+      </div>
+    `).join('');
+
+    const evolution = meta.evolution || [card.dataset.title];
+
+    document.getElementById('detailEvolution').innerHTML = evolution.map((step, index) => `
+      <span class="evolution-node${index === 0 ? ' is-current' : ''}">${step}</span>
+    `).join('<span class="evolution-arrow">→</span>');
+  };
+
   const deck = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
   const compareQueue = [];
   let activeFilter = 'all';
@@ -165,12 +372,34 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => card.classList.remove('is-spotlight'));
     const selected = visibleCards[Math.floor(Math.random() * visibleCards.length)];
     selected.classList.add('is-spotlight');
+    renderCardDetail(selected);
     selected.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   cards.forEach(card => {
+    const actions = card.querySelector('.card-actions');
     const deckButton = card.querySelector('.deck-toggle');
     const compareButton = card.querySelector('.compare-toggle');
+
+    const viewButton = document.createElement('button');
+    viewButton.className = 'view-card-toggle';
+    viewButton.type = 'button';
+    viewButton.textContent = 'View card';
+
+    if (actions) {
+      actions.prepend(viewButton);
+    }
+
+    viewButton.addEventListener('click', event => {
+      event.stopPropagation();
+      renderCardDetail(card);
+      detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    card.addEventListener('click', event => {
+      if (event.target.closest('button')) return;
+      renderCardDetail(card);
+    });
 
     deckButton.addEventListener('click', () => {
       const cardId = card.dataset.cardId;
@@ -232,4 +461,5 @@ document.addEventListener('DOMContentLoaded', () => {
   syncDeckButtons();
   renderDeck();
   renderCompare();
+  renderCardDetail(cards[0]);
 });

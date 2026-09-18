@@ -753,6 +753,7 @@ main {
 }
 
 @media (max-width: 960px) {
+
   .deck-header,
   .control-bar,
   .section-heading,
@@ -795,6 +796,7 @@ main {
 }
 
 @media (max-width: 640px) {
+
   .deck-nav,
   .header-actions {
     width: 100%;
@@ -816,5 +818,251 @@ main {
 
   .hero-copy h1 {
     font-size: 4.5rem;
+  }
+}
+
+/* =========================================================
+   RPG CARD DETAIL LAB
+   ========================================================= */
+
+.card-detail-panel {
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at top left, rgba(16, 168, 255, 0.14), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(244, 192, 22, 0.12), transparent 30%),
+    var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.detail-poster-wrap {
+  border: 1px solid rgba(244, 192, 22, 0.35);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #050505;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.detail-poster-wrap img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.detail-content {
+  display: grid;
+  gap: 18px;
+}
+
+.detail-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.detail-badges span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(16, 168, 255, 0.16);
+  border: 1px solid rgba(16, 168, 255, 0.42);
+  color: var(--text);
+}
+
+#detailRarity {
+  background: var(--gold-soft);
+  border-color: rgba(244, 192, 22, 0.55);
+  color: var(--gold);
+}
+
+.detail-description {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.45;
+}
+
+.detail-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.detail-stat {
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.detail-stat span {
+  display: block;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+}
+
+.detail-stat strong {
+  display: block;
+  margin-top: 4px;
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--text);
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.detail-special,
+.detail-evolution {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(244, 192, 22, 0.25);
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.detail-special strong,
+.detail-evolution strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.detail-special p {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.evolution-path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.evolution-node {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--muted);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.evolution-node.is-current {
+  color: #050505;
+  background: var(--gold);
+  border-color: var(--gold);
+  font-weight: 700;
+}
+
+.evolution-arrow {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.detail-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 0;
+}
+
+.detail-meta div {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.detail-meta dt {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.detail-meta dd {
+  margin: 4px 0 0;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.view-card-toggle {
+  border: 1px solid rgba(16, 168, 255, 0.5);
+  color: var(--blue);
+  background: rgba(16, 168, 255, 0.08);
+}
+
+.deck-card.is-detail-active {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.deck-card.is-detail-active .card-frame {
+  background:
+    linear-gradient(180deg, rgba(16, 168, 255, 0.14), rgba(0, 0, 0, 0.16)),
+    rgba(0, 0, 0, 0.72);
+}
+
+@media (max-width: 860px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-poster-wrap {
+    max-width: 280px;
+  }
+
+  .detail-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .card-detail-panel {
+    padding: 18px;
+  }
+
+  .detail-stats,
+  .detail-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .evolution-path {
+    align-items: stretch;
+  }
+
+  .evolution-node {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .evolution-arrow {
+    width: 100%;
+    text-align: center;
   }
 }
