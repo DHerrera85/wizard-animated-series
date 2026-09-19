@@ -420,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewButton = document.createElement('button');
     viewButton.className = 'view-card-toggle';
     viewButton.type = 'button';
-    viewButton.textContent = 'View card';
+    viewButton.textContent = 'Card file';
 
     if (actions) {
       actions.prepend(viewButton);

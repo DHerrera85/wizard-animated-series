@@ -1276,3 +1276,29 @@ main {
     min-height: auto;
   }
 }
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-actions button {
+  min-height: 42px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.view-card-toggle {
+  border: 1px solid rgba(16, 168, 255, 0.65);
+  color: var(--blue);
+  background: rgba(16, 168, 255, 0.08);
+}
+
+.view-card-toggle:hover {
+  background: rgba(16, 168, 255, 0.16);
+  box-shadow: 0 0 18px rgba(16, 168, 255, 0.18);
+}
