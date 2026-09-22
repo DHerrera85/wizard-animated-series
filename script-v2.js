@@ -230,7 +230,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join('<span class="evolution-arrow">→</span>');
   };
 
+  const handleEvolutionClick = event => {
+    const node = event.target.closest('.evolution-node');
+
+    if (!node || node.disabled) return;
+
+    const evolutionId = node.dataset.evolutionId;
+    const evolutionType = node.dataset.evolutionType;
+
+    if (evolutionType === 'card') {
+      const targetCard = cards.find(
+        card => card.dataset.cardId === evolutionId
+      );
+
+      if (!targetCard) return;
+
+      renderCardDetail(targetCard);
+
+      detailPanel.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      return;
+    }
+
+    if (evolutionType === 'vault') {
+      if (!secretVault) return;
+
+      secretVault.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  document
+    .getElementById('detailEvolution')
+    .addEventListener('click', handleEvolutionClick);
+
   const deck = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+
   const compareQueue = [];
   let activeFilter = 'all';
 
