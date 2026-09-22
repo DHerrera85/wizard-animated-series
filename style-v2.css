@@ -976,27 +976,58 @@ main {
 
 .evolution-path {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 8px;
-  align-items: center;
+  margin-top: 10px;
 }
 
 .evolution-node {
+  appearance: none;
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 6px 10px;
+  justify-content: center;
+  width: auto;
+  min-height: 32px;
+  padding: 6px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  color: var(--muted);
-  border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .evolution-node.is-current {
-  color: #050505;
-  background: var(--gold);
-  border-color: var(--gold);
+  border-color: rgba(244, 192, 22, 0.65);
+  background: var(--gold-soft);
+  color: var(--gold);
   font-weight: 700;
+}
+
+.evolution-node.is-interactive:not(:disabled) {
+  cursor: pointer;
+}
+
+.evolution-node.is-interactive:not(:disabled):hover {
+  border-color: rgba(16, 168, 255, 0.65);
+  background: rgba(16, 168, 255, 0.1);
+  color: var(--blue);
+}
+
+.evolution-node:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.evolution-arrow {
+  flex: 0 0 auto;
+  color: var(--blue);
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 .evolution-arrow {
