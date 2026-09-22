@@ -951,10 +951,13 @@ main {
 }
 
 .detail-special {
-  margin-top: 20px;
+  display: block;
+  width: 100%;
+  margin-top: 4px;
   padding: 0;
   border: 0;
   background: none;
+  clear: both;
 }
 
 .detail-special>strong {
