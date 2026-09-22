@@ -125,11 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <img id="detailPoster" src="" alt="" />
       </div>
 
-      <div class="detail-content">
-        <div class="detail-badges">
-          <span id="detailRarity">Rarity</span>
-          <span id="detailClass">Class</span>
-        </div>
+<div class="detail-badges">
+  <span id="detailRarity">Rarity</span>
+</div>
+
+<div class="detail-class">
+  <span>Class</span>
+  <strong id="detailClass">Animated Series Card</strong>
+</div>
 
         <p id="detailDescription" class="detail-description"></p>
 
@@ -145,24 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div id="detailEvolution" class="evolution-path"></div>
         </div>
 
-        <dl class="detail-meta">
-          <div>
-            <dt>Year</dt>
-            <dd id="detailYear"></dd>
-          </div>
-          <div>
-            <dt>Network</dt>
-            <dd id="detailNetwork"></dd>
-          </div>
-          <div>
-            <dt>Seasons</dt>
-            <dd id="detailSeasons"></dd>
-          </div>
-          <div>
-            <dt>Episodes</dt>
-            <dd id="detailEpisodes"></dd>
-          </div>
-        </dl>
+
       </div>
     </div>
   `;
@@ -199,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('detailTitle').textContent = card.dataset.title;
     document.getElementById('detailSubtitle').textContent =
-      `${card.dataset.year} · ${card.dataset.publisher} · ${card.dataset.network}`;
+      `${card.dataset.year} · ${card.dataset.publisher} · ${card.dataset.network} · ${card.dataset.seasons} · ${card.dataset.episodes}`;
 
     document.getElementById('detailPoster').src = poster?.getAttribute('src') || '';
     document.getElementById('detailPoster').alt = poster?.getAttribute('alt') || card.dataset.title;
@@ -208,11 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('detailClass').textContent = meta.className || 'Animated Series Card';
     document.getElementById('detailDescription').textContent = meta.description || card.dataset.note;
     document.getElementById('detailSpecial').textContent = meta.special || 'Collector Value';
-
-    document.getElementById('detailYear').textContent = card.dataset.year;
-    document.getElementById('detailNetwork').textContent = card.dataset.network;
-    document.getElementById('detailSeasons').textContent = card.dataset.seasons;
-    document.getElementById('detailEpisodes').textContent = card.dataset.episodes;
 
     document.getElementById('detailStats').innerHTML = stats.map(stat => `
       <div class="detail-stat">
