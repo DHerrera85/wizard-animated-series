@@ -924,6 +924,8 @@ main {
   display: grid;
   grid-template-columns: repeat(3, minmax(120px, 1fr));
   gap: 12px;
+  width: 100%;
+  margin-bottom: 8px;
 }
 
 .detail-stat {
@@ -951,13 +953,14 @@ main {
 }
 
 .detail-special {
-  display: block;
+  display: grid;
+  gap: 6px;
   width: 100%;
-  margin-top: 4px;
-  padding: 0;
-  border: 0;
-  background: none;
-  clear: both;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid rgba(244, 192, 22, 0.24);
+  border-radius: var(--radius-sm);
+  background: rgba(244, 192, 22, 0.06);
 }
 
 .detail-special>strong {
@@ -970,11 +973,33 @@ main {
   letter-spacing: 0.08em;
 }
 
+.detail-secondary {
+  display: grid;
+  gap: 18px;
+  width: 100%;
+}
+
 .detail-special p {
   margin: 0;
   color: var(--text);
   font-size: 1.05rem;
   font-weight: 600;
+}
+
+.detail-evolution {
+  padding: 14px;
+  border: 1px solid rgba(16, 168, 255, 0.24);
+  border-radius: var(--radius-sm);
+  background: rgba(16, 168, 255, 0.05);
+}
+
+.detail-evolution > strong {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .evolution-path {

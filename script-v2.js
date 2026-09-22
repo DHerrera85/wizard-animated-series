@@ -125,29 +125,31 @@ document.addEventListener('DOMContentLoaded', () => {
         <img id="detailPoster" src="" alt="" />
       </div>
 
-<div class="detail-badges">
-  <span id="detailRarity">Rarity</span>
-</div>
+      <div class="detail-content">
+        <div class="detail-badges">
+          <span id="detailRarity">Rarity</span>
+        </div>
 
-<div class="detail-class">
-  <span>Class</span>
-  <strong id="detailClass">Animated Series Card</strong>
-</div>
+        <div class="detail-class">
+          <span>Class</span>
+          <strong id="detailClass">Animated Series Card</strong>
+        </div>
 
         <p id="detailDescription" class="detail-description"></p>
 
         <div class="detail-stats" id="detailStats"></div>
 
-        <div class="detail-special">
-          <strong>Special Skill</strong>
-          <p id="detailSpecial"></p>
-        </div>
+        <div class="detail-secondary">
+          <div class="detail-special">
+            <strong>Special Skill</strong>
+            <p id="detailSpecial"></p>
+          </div>
 
-        <div class="detail-evolution">
-          <strong>Evolution Path</strong>
-          <div id="detailEvolution" class="evolution-path"></div>
+          <div class="detail-evolution">
+            <strong>Evolution Path</strong>
+            <div id="detailEvolution" class="evolution-path"></div>
+          </div>
         </div>
-
 
       </div>
     </div>
