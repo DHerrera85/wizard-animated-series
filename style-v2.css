@@ -950,19 +950,19 @@ main {
   line-height: 1;
 }
 
-.detail-special,
-.detail-evolution {
-  padding: 16px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(244, 192, 22, 0.25);
-  background: rgba(0, 0, 0, 0.24);
+.detail-special {
+  margin-top: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
 }
 
-.detail-special strong,
-.detail-evolution strong {
+.detail-special>strong {
   display: block;
-  margin-bottom: 8px;
-  color: var(--gold);
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -970,7 +970,8 @@ main {
 .detail-special p {
   margin: 0;
   color: var(--text);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
 .evolution-path {
