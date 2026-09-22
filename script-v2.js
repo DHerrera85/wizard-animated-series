@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
       special: 'Noir Legacy',
       description: 'A prestige animated icon with strong noir identity, premium storytelling and long-term cultural impact.',
       evolution: [
-        'Batman: The Animated Series',
-        'The New Batman Adventures',
-        'Batman Beyond'
+        { id: 'batman-animated', title: 'Batman: The Animated Series', type: 'card' },
+        { id: 'new-batman-adventures', title: 'The New Batman Adventures', type: 'archive' },
+        { id: 'batman-beyond', title: 'Batman Beyond', type: 'archive' }
       ]
     },
     'xmen-animated': {
@@ -37,10 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
       special: 'Serialized Continuity',
       description: 'A team-based card with strong continuity, mutant drama and one of the clearest bridges between decades.',
       evolution: [
-        'Pryde of the X-Men',
-        'X-Men: The Animated Series',
-        'Wolverine and the X-Men',
-        "X-Men '97"
+        { id: 'pryde-xmen', title: 'Pryde of the X-Men', type: 'vault' },
+        { id: 'xmen-animated', title: 'X-Men: The Animated Series', type: 'card' },
+        { id: 'wolverine-xmen', title: 'Wolverine and the X-Men', type: 'archive' },
+        { id: 'xmen-97', title: "X-Men '97", type: 'archive' }
       ]
     },
     'spiderman-animated': {
@@ -48,10 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
       special: 'Villains Gallery',
       description: 'A flexible gateway card with broad recognition, strong villain variety and classic 90s action appeal.',
       evolution: [
-        'Spider-Man: The Animated Series',
-        'Spider-Man Unlimited',
-        'The Spectacular Spider-Man',
-        'Ultimate Spider-Man'
+        { id: 'spiderman-animated', title: 'Spider-Man: The Animated Series', type: 'card' },
+        { id: 'spiderman-unlimited', title: 'Spider-Man Unlimited', type: 'archive' },
+        { id: 'spectacular-spiderman', title: 'The Spectacular Spider-Man', type: 'archive' },
+        { id: 'ultimate-spiderman', title: 'Ultimate Spider-Man', type: 'archive' }
       ]
     },
     'superman-animated': {
@@ -59,9 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
       special: 'Heroic Mythmaking',
       description: 'A bright heroic card that balances classic mythology, clean design and accessible adventure.',
       evolution: [
-        'Superman: The Animated Series',
-        'Justice League',
-        'Justice League Unlimited'
+        { id: 'superman-animated', title: 'Superman: The Animated Series', type: 'card' },
+        { id: 'justice-league', title: 'Justice League', type: 'archive' },
+        { id: 'justice-league-unlimited', title: 'Justice League Unlimited', type: 'archive' }
       ]
     },
     spawn: {
@@ -202,11 +202,30 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `).join('');
 
-    const evolution = meta.evolution || [card.dataset.title];
+    const evolution = meta.evolution || [
+      {
+        id: cardId,
+        title: card.dataset.title,
+        type: 'card'
+      }
+    ];
 
-    document.getElementById('detailEvolution').innerHTML = evolution.map((step, index) => `
-      <span class="evolution-node${index === 0 ? ' is-current' : ''}">${step}</span>
-    `).join('<span class="evolution-arrow">→</span>');
+    document.getElementById('detailEvolution').innerHTML = evolution.map(step => {
+      const isCurrent = step.id === cardId;
+      const isInteractive = step.type === 'card' || step.type === 'vault';
+
+      return `
+    <button
+      class="evolution-node${isCurrent ? ' is-current' : ''}${isInteractive ? ' is-interactive' : ''}"
+      type="button"
+      data-evolution-id="${step.id}"
+      data-evolution-type="${step.type}"
+      ${isCurrent ? 'disabled' : ''}
+    >
+      ${step.title}
+    </button>
+  `;
+    }).join('<span class="evolution-arrow">→</span>');
   };
 
   const deck = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
