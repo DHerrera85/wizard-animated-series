@@ -176,6 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderCardDetail = card => {
     if (!card) return;
 
+    detailPanel.classList.add('is-visible');
+
     const cardId = card.dataset.cardId;
     const meta = rpgMeta[cardId] || {};
     const poster = card.querySelector('img');
@@ -542,5 +544,4 @@ document.addEventListener('DOMContentLoaded', () => {
   renderDeck();
   renderVault();
   renderCompare();
-  renderCardDetail(cards[0]);
 });
