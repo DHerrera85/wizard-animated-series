@@ -372,8 +372,19 @@
           </div>
 
           <div class="character-actions">
-            <button type="button">Add character card</button>
-            <button type="button" class="secondary">Compare versions</button>
+            <button type="button" id="addCharacterCard">Add character card</button>
+            <button type="button" class="secondary" id="compareCharacterVersions">Compare versions</button>
+          </div>
+
+          <div class="character-collection-panel" id="characterCollectionPanel">
+            <div>
+              <strong>Character collection</strong>
+              <span id="characterCollectionSummary">No character nodes saved yet.</span>
+            </div>
+
+            <ul id="characterCollectionList" class="character-collection-list">
+              <li class="character-empty">Save Supergirl nodes to build this character path.</li>
+            </ul>
           </div>
         </div>
       </div>

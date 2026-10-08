@@ -556,10 +556,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const characterActiveSource = document.getElementById('characterActiveSource');
   const characterActiveDescription = document.getElementById('characterActiveDescription');
 
+  const characterStorageKey = 'wizardCharacterCollectionV1';
+  const addCharacterCardButton = document.getElementById('addCharacterCard');
+  const characterCollectionSummary = document.getElementById('characterCollectionSummary');
+  const characterCollectionList = document.getElementById('characterCollectionList');
+
+  const characterCollection = new Set(
+    JSON.parse(localStorage.getItem(characterStorageKey) || '[]')
+  );
+
+  let activeCharacterNode = document.querySelector('.character-node.is-current');
+
   const renderCharacterNode = node => {
     if (!node) return;
 
     const isLocked = node.dataset.locked === 'true';
+
+    activeCharacterNode = node;
 
     characterNodes.forEach(item => {
       item.classList.remove('is-current');
@@ -594,6 +607,71 @@ document.addEventListener('DOMContentLoaded', () => {
         characterPreviewImage.alt = 'Secret Supergirl variant locked';
       }
     }
+  };
+
+  const getCharacterNodeId = node => {
+    if (!node) return '';
+    return `supergirl-${node.dataset.title || 'unknown'}`
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  };
+
+  const getCharacterNodeData = node => ({
+    id: getCharacterNodeId(node),
+    title: node.dataset.title || 'Unknown node',
+    era: node.dataset.era || 'Character node',
+    subtitle: node.dataset.subtitle || '',
+    type: node.dataset.type || '',
+    locked: node.dataset.locked === 'true'
+  });
+
+  const renderCharacterCollection = () => {
+    if (!characterCollectionSummary || !characterCollectionList) return;
+
+    const savedIds = Array.from(characterCollection);
+    const savedNodes = savedIds
+      .map(id => characterNodes.find(node => getCharacterNodeId(node) === id))
+      .filter(Boolean)
+      .map(getCharacterNodeData);
+
+    characterCollectionSummary.textContent = savedNodes.length
+      ? `${savedNodes.length} character node${savedNodes.length === 1 ? '' : 's'} saved.`
+      : 'No character nodes saved yet.';
+
+    characterCollectionList.innerHTML = '';
+
+    if (!savedNodes.length) {
+      const empty = document.createElement('li');
+      empty.className = 'character-empty';
+      empty.textContent = 'Save Supergirl nodes to build this character path.';
+      characterCollectionList.appendChild(empty);
+      return;
+    }
+
+    savedNodes.forEach(node => {
+      const item = document.createElement('li');
+      item.innerHTML = `
+      <strong>${node.title}</strong>
+      <span>${node.era} · ${node.type}</span>
+    `;
+      characterCollectionList.appendChild(item);
+    });
+  };
+
+  const syncCharacterButton = () => {
+    if (!addCharacterCardButton || !activeCharacterNode) return;
+
+    const isLocked = activeCharacterNode.dataset.locked === 'true';
+    const activeId = getCharacterNodeId(activeCharacterNode);
+    const isSaved = characterCollection.has(activeId);
+
+    addCharacterCardButton.disabled = isLocked;
+    addCharacterCardButton.textContent = isLocked
+      ? 'Locked node'
+      : isSaved
+        ? 'Saved character'
+        : 'Add character card';
   };
 
   characterNodes.forEach(node => {
