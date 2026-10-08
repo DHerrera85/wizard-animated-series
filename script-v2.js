@@ -532,11 +532,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  drawRandomCardButton.addEventListener('click', spotlightRandomCard);
-  jumpRandomButton.addEventListener('click', spotlightRandomCard);
-  jumpCompareButton.addEventListener('click', () => {
-    document.getElementById('comparePanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+  if (drawRandomCardButton) {
+    drawRandomCardButton.addEventListener('click', spotlightRandomCard);
+  }
+
+  if (jumpRandomButton) {
+    jumpRandomButton.addEventListener('click', spotlightRandomCard);
+  }
+
+  if (jumpCompareButton) {
+    jumpCompareButton.addEventListener('click', () => {
+      document.getElementById('comparePanel')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  }
 
   const characterNodes = Array.from(document.querySelectorAll('[data-character-node]'));
   const characterPreviewImage = document.getElementById('characterPreviewImage');
@@ -574,9 +585,14 @@ document.addEventListener('DOMContentLoaded', () => {
       characterActiveDescription.textContent = node.dataset.description || '';
     }
 
-    if (characterPreviewImage && node.dataset.preview) {
-      characterPreviewImage.src = node.dataset.preview;
-      characterPreviewImage.alt = `Supergirl - ${node.dataset.subtitle || node.dataset.title}`;
+    if (characterPreviewImage) {
+      if (node.dataset.preview) {
+        characterPreviewImage.src = node.dataset.preview;
+        characterPreviewImage.alt = `Supergirl - ${node.dataset.subtitle || node.dataset.title}`;
+      } else if (isLocked) {
+        characterPreviewImage.removeAttribute('src');
+        characterPreviewImage.alt = 'Secret Supergirl variant locked';
+      }
     }
   };
 
