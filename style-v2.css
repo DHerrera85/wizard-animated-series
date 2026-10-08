@@ -1655,3 +1655,68 @@ main {
 .card-detail-panel:not(.is-visible) {
   display: none;
 }
+
+/* =========================================================
+   CHARACTER COLLECTION
+   ========================================================= */
+
+.character-collection-panel {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(16, 168, 255, 0.28);
+  background: rgba(0, 0, 0, 0.24);
+  display: grid;
+  gap: 12px;
+}
+
+.character-collection-panel>div {
+  display: grid;
+  gap: 4px;
+}
+
+.character-collection-panel strong {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.character-collection-panel span {
+  color: var(--muted);
+}
+
+.character-collection-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.character-collection-list li {
+  display: grid;
+  gap: 3px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.character-collection-list li strong {
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.character-collection-list li span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.character-empty {
+  color: var(--muted);
+}
+
+.character-actions button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}

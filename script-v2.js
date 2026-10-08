@@ -607,6 +607,8 @@ document.addEventListener('DOMContentLoaded', () => {
         characterPreviewImage.alt = 'Secret Supergirl variant locked';
       }
     }
+
+    syncCharacterButton();
   };
 
   const getCharacterNodeId = node => {
@@ -677,8 +679,6 @@ document.addEventListener('DOMContentLoaded', () => {
   characterNodes.forEach(node => {
     node.addEventListener('click', () => {
       renderCharacterNode(node);
-
-      syncCharacterButton();
     });
 
     node.addEventListener('keydown', event => {
@@ -689,10 +689,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  if (addCharacterCardButton) {
+    addCharacterCardButton.addEventListener('click', () => {
+      if (!activeCharacterNode) return;
+
+      const isLocked = activeCharacterNode.dataset.locked === 'true';
+
+      if (isLocked) return;
+
+      const activeId = getCharacterNodeId(activeCharacterNode);
+
+      if (characterCollection.has(activeId)) {
+        characterCollection.delete(activeId);
+      } else {
+        characterCollection.add(activeId);
+      }
+
+      localStorage.setItem(
+        characterStorageKey,
+        JSON.stringify(Array.from(characterCollection))
+      );
+
+      renderCharacterCollection();
+      syncCharacterButton();
+    });
+  }
+
   sortCards('rarity');
   applyFilter('all');
   syncDeckButtons();
   renderDeck();
   renderVault();
   renderCompare();
+  renderCharacterCollection();
+  syncCharacterButton();
 });
