@@ -300,33 +300,75 @@
           <p class="section-kicker">Character evolution lab</p>
           <h2>Supergirl progression test</h2>
         </div>
-        <p>Prototype character card linked to My Adventures with Superman.</p>
+        <p>Prototype character path connected to different animated projects.</p>
       </div>
 
       <div class="character-lab-layout">
         <article class="character-preview-card">
-          <img src="img/characters/2020s-supergirl-my-adventures-character-card-280x420.png"
+          <img id="characterPreviewImage" src="img/characters/2020s-supergirl-my-adventures-character-card-280x420.png"
             alt="Supergirl - My Adventures with Superman character card" />
         </article>
 
         <div class="character-lab-content">
-          <span class="character-status">2020s node</span>
-          <h3>Supergirl</h3>
-          <p class="character-source">My Adventures with Superman · Character Card</p>
+          <span class="character-status" id="characterActiveEra">2020s node</span>
+          <h3 id="characterActiveTitle">Supergirl</h3>
+          <p class="character-source" id="characterActiveSource">My Adventures with Superman · Rare modern variant</p>
 
-          <p>
-            First test for the character progression system. This card can later connect
-            different Supergirl versions across projects, eras and animation styles.
+          <p id="characterActiveDescription">
+            The current modern node in the Supergirl path, connected to a newer animated style and a lighter adventure
+            tone.
           </p>
 
-          <div class="character-path">
-            <span class="path-node is-locked">Legion</span>
-            <span class="path-arrow">→</span>
-            <span class="path-node is-locked">Young Justice</span>
-            <span class="path-arrow">→</span>
-            <span class="path-node is-current">My Adventures</span>
-            <span class="path-arrow">→</span>
-            <span class="path-node is-locked">Secret Variant</span>
+          <div class="character-evolution-track" aria-label="Supergirl evolution path">
+            <article class="character-node is-unlocked" role="button" tabindex="0" data-character-node
+              data-preview="img/characters/1990s-supergirl-superman-tas-cutout.png" data-era="90s node"
+              data-title="Superman TAS" data-subtitle="Superman: The Animated Series"
+              data-type="Classic · Legacy origin"
+              data-description="The classic animated Supergirl node. This version works as an early legacy point in the character progression path.">
+              <div class="character-node-art">
+                <img src="img/characters/1990s-supergirl-superman-tas-cutout.png"
+                  alt="Supergirl - Superman: The Animated Series" />
+              </div>
+              <div class="character-node-info">
+                <span>90s node</span>
+                <h4>Superman TAS</h4>
+                <p>Classic · Legacy origin</p>
+              </div>
+            </article>
+
+            <span class="character-track-arrow">→</span>
+
+            <article class="character-node is-current" role="button" tabindex="0" data-character-node
+              data-preview="img/characters/2020s-supergirl-my-adventures-character-card-280x420.png"
+              data-era="2020s node" data-title="My Adventures" data-subtitle="My Adventures with Superman"
+              data-type="Rare · Modern variant"
+              data-description="The current modern node in the Supergirl path, connected to a newer animated style and a lighter adventure tone.">
+              <div class="character-node-art">
+                <img src="img/characters/2020s-supergirl-my-adventures-cutout.png"
+                  alt="Supergirl - My Adventures with Superman" />
+              </div>
+              <div class="character-node-info">
+                <span>2020s node</span>
+                <h4>My Adventures</h4>
+                <p>Rare · Modern variant</p>
+              </div>
+            </article>
+
+            <span class="character-track-arrow">→</span>
+
+            <article class="character-node is-locked" role="button" tabindex="0" data-character-node data-locked="true"
+              data-era="Secret node" data-title="Hidden Variant" data-subtitle="Locked node"
+              data-type="Locked · Complete path"
+              data-description="This secret variant is locked. Future versions can unlock it after completing the Supergirl progression path.">
+              <div class="character-node-art locked-art">
+                <span>?</span>
+              </div>
+              <div class="character-node-info">
+                <span>Secret node</span>
+                <h4>Hidden Variant</h4>
+                <p>Locked · Complete path</p>
+              </div>
+            </article>
           </div>
 
           <div class="character-actions">
@@ -335,29 +377,6 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="utility-strip" aria-label="Deck actions">
-      <button type="button" class="utility-card" data-open-deck>
-        <strong>Build your deck</strong>
-        <span>Save favorite series into a persistent collector list.</span>
-      </button>
-      <button type="button" class="utility-card" id="jumpCompare">
-        <strong>Compare cards</strong>
-        <span>Pin two cards and view their stats side by side.</span>
-      </button>
-      <button type="button" class="utility-card" id="jumpRandom">
-        <strong>Random card</strong>
-        <span>Pull a visible card at random and spotlight it in the deck.</span>
-      </button>
-      <a class="utility-card" href="#secretVault">
-        <strong>Secret Vault</strong>
-        <span>Unlock hidden pilot files by saving cards to your deck.</span>
-      </a>
-      <a class="utility-card" href="#collectorNotes">
-        <strong>Collector notes</strong>
-        <span>Read curation logic, era framing and rarity rationale.</span>
-      </a>
     </section>
 
     <section class="secret-vault-panel is-locked" id="secretVault">

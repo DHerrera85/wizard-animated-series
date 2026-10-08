@@ -1502,13 +1502,11 @@ main {
   padding: 12px 12px 0;
   background:
     linear-gradient(180deg, rgba(16, 168, 255, 0.18), rgba(0, 0, 0, 0.32)),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255,255,255,0.04) 0,
-      rgba(255,255,255,0.04) 2px,
+    repeating-linear-gradient(-45deg,
+      rgba(255, 255, 255, 0.04) 0,
+      rgba(255, 255, 255, 0.04) 2px,
       transparent 2px,
-      transparent 8px
-    );
+      transparent 8px);
 }
 
 .character-node-art img {
@@ -1597,6 +1595,37 @@ main {
   color: var(--blue);
   border-color: rgba(16, 168, 255, 0.5);
   background: rgba(16, 168, 255, 0.08);
+}
+
+.character-node {
+  cursor: pointer;
+}
+
+.character-node:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.character-node.is-current {
+  border-color: rgba(244, 192, 22, 0.85);
+  box-shadow:
+    0 0 0 1px rgba(244, 192, 22, 0.35),
+    0 0 32px rgba(244, 192, 22, 0.16);
+}
+
+.character-node.is-current .character-node-info h4 {
+  color: var(--gold);
+}
+
+.character-node.is-locked.is-current {
+  border-color: rgba(255, 85, 56, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(255, 85, 56, 0.25),
+    0 0 28px rgba(255, 85, 56, 0.12);
+}
+
+.character-preview-card img {
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 @media (max-width: 960px) {

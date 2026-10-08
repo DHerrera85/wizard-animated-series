@@ -538,6 +538,61 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('comparePanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
+  const characterNodes = Array.from(document.querySelectorAll('[data-character-node]'));
+  const characterPreviewImage = document.getElementById('characterPreviewImage');
+  const characterActiveEra = document.getElementById('characterActiveEra');
+  const characterActiveTitle = document.getElementById('characterActiveTitle');
+  const characterActiveSource = document.getElementById('characterActiveSource');
+  const characterActiveDescription = document.getElementById('characterActiveDescription');
+
+  const renderCharacterNode = node => {
+    if (!node) return;
+
+    const isLocked = node.dataset.locked === 'true';
+
+    characterNodes.forEach(item => {
+      item.classList.remove('is-current');
+      item.setAttribute('aria-pressed', 'false');
+    });
+
+    node.classList.add('is-current');
+    node.setAttribute('aria-pressed', 'true');
+
+    if (characterActiveEra) {
+      characterActiveEra.textContent = node.dataset.era || 'Character node';
+    }
+
+    if (characterActiveTitle) {
+      characterActiveTitle.textContent = isLocked ? 'Secret Variant' : 'Supergirl';
+    }
+
+    if (characterActiveSource) {
+      characterActiveSource.textContent = `${node.dataset.subtitle || ''} · ${node.dataset.type || ''}`;
+    }
+
+    if (characterActiveDescription) {
+      characterActiveDescription.textContent = node.dataset.description || '';
+    }
+
+    if (characterPreviewImage && node.dataset.preview) {
+      characterPreviewImage.src = node.dataset.preview;
+      characterPreviewImage.alt = `Supergirl - ${node.dataset.subtitle || node.dataset.title}`;
+    }
+  };
+
+  characterNodes.forEach(node => {
+    node.addEventListener('click', () => {
+      renderCharacterNode(node);
+    });
+
+    node.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        renderCharacterNode(node);
+      }
+    });
+  });
+
   sortCards('rarity');
   applyFilter('all');
   syncDeckButtons();
