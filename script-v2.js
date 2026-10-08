@@ -677,6 +677,8 @@ document.addEventListener('DOMContentLoaded', () => {
   characterNodes.forEach(node => {
     node.addEventListener('click', () => {
       renderCharacterNode(node);
+
+      syncCharacterButton();
     });
 
     node.addEventListener('keydown', event => {
