@@ -599,12 +599,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (characterPreviewImage) {
+      characterPreviewImage.className = 'character-preview-img';
+
+      if (node.dataset.previewClass) {
+        characterPreviewImage.classList.add(node.dataset.previewClass);
+      }
+
       if (node.dataset.preview) {
         characterPreviewImage.src = node.dataset.preview;
         characterPreviewImage.alt = `Supergirl - ${node.dataset.subtitle || node.dataset.title}`;
       } else if (isLocked) {
         characterPreviewImage.removeAttribute('src');
         characterPreviewImage.alt = 'Secret Supergirl variant locked';
+        characterPreviewImage.classList.add('is-preview-locked');
       }
     }
 
