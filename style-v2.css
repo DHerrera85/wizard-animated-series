@@ -1759,9 +1759,15 @@ main {
   margin: auto;
 }
 
-.character-preview-img.is-preview-tas-supergirl {
+.character-preview-img.is-preview-maws-supergirl {
   max-height: 390px;
-  transform: scale(1.60);
+  transform: scale(1.02);
+  transform-origin: center center;
+}
+
+.character-preview-img.is-preview-jl-supergirl {
+  max-height: 390px;
+  transform: scale(1);
   transform-origin: center center;
 }
 
