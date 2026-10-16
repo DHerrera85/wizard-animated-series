@@ -1934,7 +1934,14 @@ main {
   transform: none;
 }
 
+.character-node-art img.character-node-img.is-jl-supergirl,
 .character-node-art img.character-node-img.is-maws-supergirl {
-  max-height: 210px;
-  transform: none;
+  max-height: 222px;
+}
+
+@media (max-width: 560px) {
+  .character-node-art img.character-node-img.is-jl-supergirl,
+  .character-node-art img.character-node-img.is-maws-supergirl {
+    max-height: 162px;
+  }
 }
