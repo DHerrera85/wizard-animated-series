@@ -1864,7 +1864,7 @@ main {
 
 .character-track-arrow {
   align-self: center;
-  margin-top: -68px;
+  margin-top: 0;
   font-size: 2rem;
   color: var(--blue);
   text-shadow: 0 0 16px rgba(16, 168, 255, 0.42);
@@ -1940,6 +1940,7 @@ main {
 }
 
 @media (max-width: 560px) {
+
   .character-node-art img.character-node-img.is-jl-supergirl,
   .character-node-art img.character-node-img.is-maws-supergirl {
     max-height: 162px;
