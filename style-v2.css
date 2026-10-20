@@ -1721,6 +1721,11 @@ main {
   cursor: not-allowed;
 }
 
+/* Respetar el estado oculto de la variante desbloqueable */
+.character-node[hidden],
+.character-track-arrow[hidden] {
+  display: none;
+}
 
 /* =========================================================
    SUPERGIRL — COMPARE VERSIONS
