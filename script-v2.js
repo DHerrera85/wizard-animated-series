@@ -561,6 +561,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const characterCollectionSummary = document.getElementById('characterCollectionSummary');
   const characterCollectionList = document.getElementById('characterCollectionList');
 
+
+  const hiddenSupergirlVariant = document.getElementById('hiddenSupergirlVariant');
+  const hiddenVariantArrow = document.getElementById('hiddenVariantArrow');
+  const originalSupergirlNodes = characterNodes.filter(
+    node => node.id !== 'hiddenSupergirlVariant'
+  );
+
+  const hiddenVariantStorageKey = 'wizardSupergirlVariantUnlockedV1';
+
+
   const characterCollection = new Set(
     JSON.parse(localStorage.getItem(characterStorageKey) || '[]')
   );
@@ -626,6 +636,43 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/(^-|-$)/g, '');
   };
 
+
+  const syncHiddenSupergirlVariant = () => {
+    if (!hiddenSupergirlVariant) return;
+
+    const collectionComplete = originalSupergirlNodes.every(
+      node => characterCollection.has(getCharacterNodeId(node))
+    );
+
+    const wasUnlocked =
+      localStorage.getItem(hiddenVariantStorageKey) === 'true';
+
+    const unlocked = collectionComplete || wasUnlocked;
+
+    if (collectionComplete && !wasUnlocked) {
+      localStorage.setItem(hiddenVariantStorageKey, 'true');
+    }
+
+    hiddenSupergirlVariant.hidden = !unlocked;
+
+    if (hiddenVariantArrow) {
+      hiddenVariantArrow.hidden = !unlocked;
+    }
+
+    if (characterCollectionSummary) {
+      const savedCount = originalSupergirlNodes.filter(
+        node => characterCollection.has(getCharacterNodeId(node))
+      ).length;
+
+      characterCollectionSummary.textContent = unlocked
+        ? '3/3 collected · Secret variant unlocked!'
+        : `${savedCount}/3 collected · Complete the collection to unlock a secret variant.`;
+    }
+
+    return unlocked;
+  };
+
+
   const getCharacterNodeData = node => ({
     id: getCharacterNodeId(node),
     title: node.dataset.title || 'Unknown node',
@@ -644,9 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .filter(Boolean)
       .map(getCharacterNodeData);
 
-    characterCollectionSummary.textContent = savedNodes.length
-      ? `${savedNodes.length} character node${savedNodes.length === 1 ? '' : 's'} saved.`
-      : 'No character nodes saved yet.';
+    syncHiddenSupergirlVariant();
 
     characterCollectionList.innerHTML = '';
 
@@ -796,6 +841,7 @@ document.addEventListener('DOMContentLoaded', () => {
       );
 
       renderCharacterCollection();
+      syncHiddenSupergirlVariant();
       syncCharacterButton();
     });
   }
