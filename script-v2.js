@@ -752,6 +752,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const characterCompareB = document.getElementById('characterCompareB');
   const characterCompareGrid = document.getElementById('characterCompareGrid');
 
+
+  const syncCharacterCompareOptions = () => {
+    if (!characterCompareA || !characterCompareB || !hiddenSupergirlVariant) return;
+
+    const unlocked = !hiddenSupergirlVariant.hidden;
+    const hiddenIndex = characterNodes.indexOf(hiddenSupergirlVariant);
+
+    [characterCompareA, characterCompareB].forEach(select => {
+      let option = select.querySelector('option[data-hidden-variant]');
+
+      if (unlocked && !option) {
+        option = document.createElement('option');
+        option.value = String(hiddenIndex);
+        option.textContent = 'Justice League Unlimited';
+        option.dataset.hiddenVariant = 'true';
+        select.appendChild(option);
+      }
+
+      if (!unlocked && option) {
+        if (select.value === option.value) {
+          select.value = select === characterCompareA ? '0' : '2';
+        }
+        option.remove();
+      }
+    });
+  };
+
+
   const renderCharacterComparison = () => {
     if (!characterCompareGrid || !characterCompareA || !characterCompareB) return;
 
@@ -803,6 +831,7 @@ document.addEventListener('DOMContentLoaded', () => {
       characterComparePanel.hidden = !characterComparePanel.hidden;
 
       if (!characterComparePanel.hidden) {
+        syncCharacterCompareOptions();
         renderCharacterComparison();
       }
 
@@ -842,6 +871,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       renderCharacterCollection();
       syncHiddenSupergirlVariant();
+      syncCharacterCompareOptions();
+
+      if (characterComparePanel && !characterComparePanel.hidden) {
+        renderCharacterComparison();
+      }
+
       syncCharacterButton();
     });
   }
@@ -853,5 +888,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderVault();
   renderCompare();
   renderCharacterCollection();
+  syncHiddenSupergirlVariant();
+  syncCharacterCompareOptions();
   syncCharacterButton();
 });
