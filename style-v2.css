@@ -1721,6 +1721,105 @@ main {
   cursor: not-allowed;
 }
 
+
+/* =========================================================
+   SUPERGIRL — COMPARE VERSIONS
+   ========================================================= */
+
+.character-compare-panel[hidden] {
+  display: none;
+}
+
+.character-compare-panel {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid rgba(16, 168, 255, 0.35);
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.character-compare-heading h3 {
+  margin: 0 0 6px;
+  color: var(--gold);
+}
+
+.character-compare-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.character-compare-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+  margin: 20px 0;
+}
+
+.character-compare-controls label {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.character-compare-controls select {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  color: var(--text);
+  background: #111;
+  border: 1px solid rgba(16, 168, 255, 0.4);
+  border-radius: var(--radius-sm);
+}
+
+.character-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.character-compare-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid rgba(244, 192, 22, 0.35);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.character-compare-card img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  object-position: center;
+  margin-bottom: 16px;
+}
+
+.character-compare-card h4 {
+  margin: 0 0 8px;
+  color: var(--gold);
+}
+
+.character-compare-card p {
+  margin: 6px 0;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .character-compare-panel {
+    padding: 14px;
+  }
+
+  .character-compare-controls,
+  .character-compare-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .character-compare-card img {
+    height: 200px;
+  }
+}
+
+
 /* =========================================================
    CHARACTER LAB — VISUAL NORMALIZATION
    ========================================================= */

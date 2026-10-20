@@ -394,6 +394,38 @@
             <button type="button" class="secondary" id="compareCharacterVersions">Compare versions</button>
           </div>
 
+
+          <!-- SUPERGIRL — COMPARE VERSIONS -->
+          <section class="character-compare-panel" id="characterComparePanel" hidden
+            aria-label="Supergirl version comparison">
+
+            <div class="character-compare-heading">
+              <h3>Compare Supergirl Versions</h3>
+              <p>Select two versions to compare their evolution.</p>
+            </div>
+
+            <div class="character-compare-controls">
+              <label for="characterCompareA">First version</label>
+              <select id="characterCompareA">
+                <option value="0">Superman TAS</option>
+                <option value="1">Justice League Pilot</option>
+                <option value="2">My Adventures</option>
+              </select>
+
+              <label for="characterCompareB">Second version</label>
+              <select id="characterCompareB">
+                <option value="0">Superman TAS</option>
+                <option value="1">Justice League Pilot</option>
+                <option value="2" selected>My Adventures</option>
+              </select>
+            </div>
+
+            <div class="character-compare-grid" id="characterCompareGrid" aria-live="polite">
+            </div>
+
+          </section>
+
+
           <div class="character-collection-panel" id="characterCollectionPanel">
             <div>
               <strong>Character collection</strong>

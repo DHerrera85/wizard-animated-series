@@ -696,6 +696,84 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  // =========================================================
+  // SUPERGIRL — COMPARE VERSIONS
+  // =========================================================
+
+  const compareCharacterButton = document.getElementById('compareCharacterVersions');
+  const characterComparePanel = document.getElementById('characterComparePanel');
+  const characterCompareA = document.getElementById('characterCompareA');
+  const characterCompareB = document.getElementById('characterCompareB');
+  const characterCompareGrid = document.getElementById('characterCompareGrid');
+
+  const renderCharacterComparison = () => {
+    if (!characterCompareGrid || !characterCompareA || !characterCompareB) return;
+
+    const firstIndex = Number(characterCompareA.value);
+    const secondIndex = Number(characterCompareB.value);
+
+    characterCompareGrid.replaceChildren();
+
+    if (firstIndex === secondIndex) {
+      const message = document.createElement('p');
+      message.textContent = 'Select two different versions to compare.';
+      characterCompareGrid.appendChild(message);
+      return;
+    }
+
+    [firstIndex, secondIndex].forEach(index => {
+      const node = characterNodes[index];
+      if (!node) return;
+
+      const card = document.createElement('article');
+      card.className = 'character-compare-card';
+
+      const image = document.createElement('img');
+      image.src = node.dataset.preview || '';
+      image.alt = `Supergirl - ${node.dataset.subtitle || node.dataset.title}`;
+
+      const title = document.createElement('h4');
+      title.textContent = node.dataset.title || 'Unknown version';
+
+      const source = document.createElement('p');
+      source.textContent = node.dataset.subtitle || '';
+
+      const era = document.createElement('p');
+      era.textContent = node.dataset.era || '';
+
+      const type = document.createElement('p');
+      type.textContent = node.dataset.type || '';
+
+      const description = document.createElement('p');
+      description.textContent = node.dataset.description || '';
+
+      card.append(image, title, source, era, type, description);
+      characterCompareGrid.appendChild(card);
+    });
+  };
+
+  if (compareCharacterButton && characterComparePanel) {
+    compareCharacterButton.addEventListener('click', () => {
+      characterComparePanel.hidden = !characterComparePanel.hidden;
+
+      if (!characterComparePanel.hidden) {
+        renderCharacterComparison();
+      }
+
+      compareCharacterButton.setAttribute(
+        'aria-expanded',
+        String(!characterComparePanel.hidden)
+      );
+    });
+
+    compareCharacterButton.setAttribute('aria-expanded', 'false');
+    compareCharacterButton.setAttribute('aria-controls', 'characterComparePanel');
+  }
+
+  characterCompareA?.addEventListener('change', renderCharacterComparison);
+  characterCompareB?.addEventListener('change', renderCharacterComparison);
+
   if (addCharacterCardButton) {
     addCharacterCardButton.addEventListener('click', () => {
       if (!activeCharacterNode) return;
