@@ -604,61 +604,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    const moveCharacter = direction => {
-      const visibleNodes = getVisibleCharacterNodes();
-      if (!visibleNodes.length) return;
-
-      const currentIndex = visibleNodes.indexOf(activeCharacterNode);
-      const nextIndex = Math.max(
-        0,
-        Math.min(visibleNodes.length - 1, currentIndex + direction)
-      );
-
-      renderCharacterNode(visibleNodes[nextIndex]);
-    };
-
-    characterPrevious?.addEventListener('click', () => moveCharacter(-1));
-    characterNext?.addEventListener('click', () => moveCharacter(1));
-
-
-    // SUPERGIRL — SWIPE AND DRAG NAVIGATION
-
-    const characterPreviewCard = document.querySelector('.character-preview-card');
-
-    let pointerStartX = null;
-    let pointerStartY = null;
-
-    characterPreviewCard?.addEventListener('pointerdown', event => {
-      if (event.pointerType === 'mouse' && event.button !== 0) return;
-
-      pointerStartX = event.clientX;
-      pointerStartY = event.clientY;
-    });
-
-    characterPreviewCard?.addEventListener('pointerup', event => {
-      if (pointerStartX === null || pointerStartY === null) return;
-
-      const deltaX = event.clientX - pointerStartX;
-      const deltaY = event.clientY - pointerStartY;
-
-      pointerStartX = null;
-      pointerStartY = null;
-
-      if (Math.abs(deltaX) >= 45 && Math.abs(deltaX) > Math.abs(deltaY)) {
-        moveCharacter(deltaX < 0 ? 1 : -1);
-      }
-    });
-
-    characterPreviewCard?.addEventListener('pointercancel', () => {
-      pointerStartX = null;
-      pointerStartY = null;
-    });
-
-    characterPreviewCard?.addEventListener('dragstart', event => {
-      event.preventDefault();
-    });
-
-
     node.classList.add('is-current');
     node.setAttribute('aria-pressed', 'true');
 
@@ -809,6 +754,61 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCharacterNode(node);
       }
     });
+  });
+
+  const moveCharacter = direction => {
+    const visibleNodes = getVisibleCharacterNodes();
+    if (!visibleNodes.length) return;
+
+    const currentIndex = visibleNodes.indexOf(activeCharacterNode);
+    const nextIndex = Math.max(
+      0,
+      Math.min(visibleNodes.length - 1, currentIndex + direction)
+    );
+
+    renderCharacterNode(visibleNodes[nextIndex]);
+  };
+
+  characterPrevious?.addEventListener('click', () => moveCharacter(-1));
+  characterNext?.addEventListener('click', () => moveCharacter(1));
+
+
+  // SUPERGIRL — SWIPE AND DRAG NAVIGATION
+
+  const characterPreviewCard = document.querySelector('.character-preview-card');
+
+  let pointerStartX = null;
+  let pointerStartY = null;
+
+  characterPreviewCard?.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+    pointerStartX = event.clientX;
+    pointerStartY = event.clientY;
+    characterPreviewCard.setPointerCapture(event.pointerId);
+  });
+
+  characterPreviewCard?.addEventListener('pointerup', event => {
+    if (pointerStartX === null || pointerStartY === null) return;
+
+    const deltaX = event.clientX - pointerStartX;
+    const deltaY = event.clientY - pointerStartY;
+
+    pointerStartX = null;
+    pointerStartY = null;
+
+    if (Math.abs(deltaX) >= 45 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      moveCharacter(deltaX < 0 ? 1 : -1);
+    }
+  });
+
+  characterPreviewCard?.addEventListener('pointercancel', () => {
+    pointerStartX = null;
+    pointerStartY = null;
+  });
+
+  characterPreviewCard?.addEventListener('dragstart', event => {
+    event.preventDefault();
   });
 
 
